@@ -9,25 +9,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <div class="container">
-        <div class="navbar">
-            <form method="POST">
-                <input type="text" name="search" style="width: 65%" placeholder="Search Books">
-                <input type="submit" name="submit" value="Search" style="width: 30%">
-            </form>
-            <nav>
-                <ul id="MenuItems">
-                    <li><a href="index.html">Home</a></li>
-                    <!-- <li><a href="index.html">Resources</a></li> -->
-                    <li><a href="index.html">Contact</a></li>
-                    <li><a href="index.html">About</a></li>
-                    <li><a href="login.html">Account</a></li>
-                </ul>
-            </nav>
-        </div>
 
-    </div>
     <?php
+        include "navbar.php";
         session_start();
         include "../scripts/connect.php";
         $sql = "SELECT * FROM `books`";
