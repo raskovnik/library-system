@@ -27,127 +27,71 @@
         </div>
 
     </div>
+    <?php
+        session_start();
+        include "../scripts/connect.php";
+        $sql = "SELECT * FROM `books`";
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+            $count = mysqli_num_rows($result);
+            $ind = 1;
+            $rows = ceil($count / 4);
+            for ($i = 0; $i < $rows; $i++) {
+                echo '<div class="row">';
+                while ($ind <= $count) {
+                    $book = mysqli_fetch_assoc($result);
+                    if ($ind % 4 != 0) {
+                        echo '<div class="col-4">';
+                            echo '<img src="../images/'.$book["image"].'">';
+                            echo '<h4>'.$book["Title"].'</h4>';
+                            echo '<span><b>ISBN</b>: '.$book["ISBN"].'</span>';
+                            echo '<p><b>Author</b>: '.$book["Author"].'</p>';
+                        echo '</div>';
+                        $ind += 1;
+                    } else {
+                        echo '<div class="col-4">';
+                            echo '<img src="../images/'.$book["image"].'">';
+                            echo '<h4>'.$book["Title"].'</h4>';
+                            echo '<span><b>ISBN</b>: '.$book["ISBN"].'</span>';
+                            echo '<p><b>Author</b>: '.$book["Author"].'</p>';
+                        echo '</div>';
+                        $ind += 1;
+                        break;
+                    }
+                }
+                echo '</div>';
+            }
+        }
+    ?>
 
-<div class="small-container">
-  <div class="row">
-    <div class="col-4">
-        <img src="../images/cos.jpg">
-        <h4>Harry Potter and the Chamber of Secrets</h4>
-        <div class="rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star-o"></i>
-         </div>
-        <p>J. K Rowling</p>
+    <div class="page-btn">
+        <span>1</span>
+        <span><a href="#">2</a></span>
+        <span><a href="#">3</a></span>
+        <span>4</span>
+        <span>&#8594;</span>
+
+    </div>
+
     </div> 
-       <div class="col-4">
-        <img src="../images/gob.jpg">
-        <h4>Harry Potter and the Goblet of Fire</h4>
-        <div class="rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star-o"></i>
-       </div>
-       <p>J. K Rowling</p>
-       </div>
-        <div class="col-4">
-            <img src="../images/image2.jpg">
-            <h4>Harry Potter and the Deathly Hallows</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
+    <!--js for toggle menu-->
+    <script>
+        var MenuItems = document.getElementById("MenuItems")
+        MenuItems.style.maxHeight = "0px";
+
+        function menutoggle(){
+            if(MenuItems.style.maxHeight == "0px")
+                {
+                    MenuItems.style.maxHeight = "200px";
+                }
+            else
+                {
+                    MenuItems.style.maxHeight = "0px";
     
-            </div>
-            <p>J. K Rowling</p>
-        </div>
- 
- <div class="col-4">
-    <img src="../images/image3.jpg">
-    <h4>Harry Potter and the Order of the Phoenix</h4>
-    <div class="rating">
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star-half-o"></i>
+                }
 
-    </div>
-    <p>J. K Rowling</p>
-</div>
-<div class="col-4">
-    <img src="../images/images.jpg">
-    <h4>Harry Potter and the Sorcerer's Stone</h4>
-    <div class="rating">
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star-half-o"></i>
-
-    </div>
-    <p>J. K Rowling</p>
-</div>
-<div class="col-4">
-    <img src="../images/poa.jpg">
-    <h4>Harry Potter and the Prisoner of Azkben</h4>
-    <div class="rating">
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star-half-o"></i>
-    </div>
-    <p>J. K Rowling</p>
-</div>
-<div class="col-4">
-    <img src="../images/image4.jpg">
-    <h4>Harry Potter and the Half-Blood Prince</h4>
-    <div class="rating">
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star-half-o"></i>
-
-       </div>
-       <p>J. K Rowling</p>
-      </div>
-   </div>
-  <div class="page-btn">
-    <span>1</span>
-    <span><a href="#">2</a></span>
-    <span><a href="#">3</a></span>
-    <span>4</span>
-    <span>&#8594;</span>
-
-  </div>
-
-</div> 
-<!--js for toggle menu-->
-<script>
-    var MenuItems = document.getElementById("MenuItems")
-     MenuItems.style.maxHeight = "0px";
-
-     function menutoggle(){
-        if(MenuItems.style.maxHeight == "0px")
-            {
-                MenuItems.style.maxHeight = "200px";
-            }
-        else
-            {
-                MenuItems.style.maxHeight = "0px";
- 
-            }
-
-     }
-</script>
+        }
+    </script>
 
 </body>
 </html>
