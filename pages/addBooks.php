@@ -28,7 +28,7 @@
         <label>Price</label><br>
         <input type="text" class="form-input" id="price" name="price" required><br>
         <br>
-        <input type="submit" class="submit" name="submit"enctype='multipart/form-data' id="submit" value="Add Book">
+        <input type="submit" class="submit" name="submit" id="submit" value="Add Book">
     </form>
 	</article>
 	<?php
