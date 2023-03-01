@@ -16,11 +16,11 @@
                 </form>
                 <nav>
                     <ul id="MenuItems">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.php">Home</a></li>
                         <!-- <li><a href="index.html">Resources</a></li> -->
                         <li><a href="index.html">Contact</a></li>
                         <li><a href="index.html">About</a></li>
-                        <li><a href="login.html">Account</a></li>
+                        <li><a href="login.php">Account</a></li>
                     </ul>
                 </nav>
             </div>
