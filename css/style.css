@@ -56,18 +56,7 @@ p{
     line-height: 60px;
     margin: 25px 0;
 }
-.btn{
-    display: inline-block;
-    background: palevioletred;
-    color: white;
-    padding: 8px 30px;
-    margin: 20px 0;
-    border-radius: 30px;
-    transition: background 0.5s;
-}
-.btn:hover{
-  background:purple ;  
-}
+
 .header{
     background: radial-gradient(white,white);
 }
@@ -108,20 +97,6 @@ p{
     line-height: 60px;
     color: #555;
 }
-.title::after{
-     content: '';
-     background: #ff523b ;
-     width: 80px;
-     height: 5px;
-     border-radius: 5px;
-     position: absolute;
-     bottom: 0;
-     left: 50%;
-     transform: translateX(-50%);
-}
-
-
-
 h4{
     color: #555;
     font-weight: bold ;
@@ -434,23 +409,8 @@ form .btn{
 form .btn:focus{
     outline: none;
 }
-#LoginForm{
-    left: -300px; 
-}
-#RegForm{
-    left: 0;
-}
 form a{
     font-size: 12px;
-}
-#Indicator{
-    width: 60%;
-    border: none;
-    background: #ff523b;
-    height: 2px;
-    margin-top: 0px;
-    transform: translateX(110px);
-    transition: transform 1s;
 }
 
 
@@ -459,7 +419,7 @@ form a{
     .row{
         text-align: center;
 } 
-    .col-2, .col-3, .col-4{
+    .col-4{
         flex-basis: 100%;
     }
     .single-product .row{
@@ -505,25 +465,4 @@ border-top-right-radius: 15px;
 border-bottom-right-radius: 15px;
 margin-top: 15%;
 margin-left:450px;
-}
-.n{
-align-self: center;
-}
-
-button {
-border-radius: 10px;
-width: 70%;
-margin: 5px auto;
-height: 40px;
-border: none;
-
-}
-button:hover {
-background-color: rgb(200,200,200);
-}
-.button1{
-background-color: rgb(81, 81, 219);
-color: white;
-margin-top: 20px;
-transition: 0.4s ease;
 }
