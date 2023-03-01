@@ -10,7 +10,7 @@
 </head>
 <body>
 <article>
-    <form method="POST" target='addBooks.php'>
+    <form method="POST" target='addBooks.php' enctype='multipart/form-data'>
         <label>ISBN</label><br>
         <input type="text" clas="form-input" id="isbn" name="isbn" required><br>
         <label>Title</label><br>
@@ -28,11 +28,13 @@
         <label>Price</label><br>
         <input type="text" class="form-input" id="price" name="price" required><br>
         <br>
-        <input type="submit" class="submit" id="submit" value="Add Book">
+        <input type="submit" class="submit" name="submit"enctype='multipart/form-data' id="submit" value="Add Book">
     </form>
 	</article>
 	<?php
+	session_start();
 	include ('../scripts/connect.php');
+	if(isset($_POST['submit'])){
 	$isbn=$_POST['isbn'];
 	$title=$_POST['title'];
 	$author=$_POST['author'];
@@ -42,6 +44,22 @@
 	$qty=$_POST['qty'];
 	$price=$_POST['price'];
 	$sql="INSERT INTO books(ISBN,Title,Author,Category,Description,Price,Quantity,image) VALUES('$isbn','$title','$author','$category','$description','$price','$qty','$image')";
+	$target_dir = "images/";
+	$target_file = $target_dir . basename($_FILES["image"]["name"]);
+	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+  // Check if the file is actually an image
+  $check = getimagesize($_FILES["image"]["tmp_name"]);
+  if($check !== false) {
+    // Move the file to the destination directory if it's a valid image
+    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+      echo "Image uploaded successfully!";
+    } else {
+      echo "Error uploading image.";
+    }
+  } else {
+    echo "File is not an image.";
+  }
 	$result=mysqli_query($conn,$sql);
 	if(($result)){
 	echo '<script> alert("Books added to the database!");</script>';
@@ -52,6 +70,8 @@ else{
 
 }
 mysqli_close($con);
+	}
  ?>
+
 </body>
 </html>
