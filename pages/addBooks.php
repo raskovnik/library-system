@@ -39,7 +39,7 @@
                 $title=$_POST['title'];
                 $author=$_POST['author'];
                 $description=$_POST['description'];
-                $image=$_POST['image'];
+                $image=($_FILES['image']['name']);
                 $category=$_POST['category'];
                 $qty=$_POST['qty'];
                 $price=$_POST['price'];
