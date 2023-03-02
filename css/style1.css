@@ -21,7 +21,7 @@ nav {
     position: relative;
     top: 0;
     bottom: 0;
-    height: 100vh;
+    /* height: 100vh; */
     left: 0;
     background: #fff;
     width: 280px;
