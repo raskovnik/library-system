@@ -58,8 +58,9 @@
                     <div class="card">
                         <i class="fa fa-file fa-2x"></i>
                         <h3>Reports</h3>
-                        <p>Generation of reports for lost books</p>
-                        <button>Generate Report</button>
+                        <p>Generation of reports for books</p>
+                        <button>Lost Books</button>
+                        <button>All Books</button>
                     </div>
                 <div class="card">
                     <i class="fa fa-dollar fa-2x"></i>
