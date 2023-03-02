@@ -1,4 +1,8 @@
 <!DOCTYPE <!DOCTYPE html>
+<?php
+  include "../scripts/connect.php";
+  session_start();
+?>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -142,7 +146,25 @@
                             <hr id="Indicator">
                         </div>
                         <form id="LoginForm">
-                            Subjects: <select name="subject" id="subject">
+                              <label>ISBN</label><br>
+                              <input type="text" clas="form-input" id="isbn" name="isbn" required><br>
+                              <label>Title</label><br>
+                              <input type="text" class="form-input" id="title" name="title" required><br>
+                              <label>Author</label><br>
+                              <input type="text" class="form-input" id="author" name="author" required><br>
+                              <label>Description</label><br>
+                              <input type="text" class="form-input" id="description" name="description" required><br>
+                              <label>Image</label><br>
+                              <input type="file" class="form-input" id="image" name="image" required><br>
+                              <label>Category</label><br>
+                              <input type="text" class="form-input" id="category" name="category" required><br>
+                              <label>Quantity</label><br>
+                              <input type="text" class="form-input" id="qty" name="qty" required><br>
+                              <label>Price</label><br>
+                              <input type="text" class="form-input" id="price" name="price" required><br>
+                              <br>
+                              <!-- <input type="submit" class="submit" name="submit" id="submit" value="Add Book"> -->
+                            <!-- Subjects: <select name="subject" id="subject">
                                 <option value="" selected="selected">Select subject</option>
                               </select>
                               <br><br>
@@ -153,11 +175,11 @@
                               Kind: <select name="chapter" id="chapter">
                                 <option value="" selected="selected">Please select topic first</option>
                             </select>
-                            <br><br>
+                            <br><br> -->
                             <input type="submit" value="Submit" onclick="alert('Submitted successfully')">
                         </form>
-                        <form id="RegForm">
-                            Subjects: <select name="subject" id="subject1">
+                        <form id="RegForm" method="POST" action="dashboard.php">
+                            <!-- Subjects: <select name="subject" id="subject1">
                                 <option value="" selected="selected">Select subject</option>
                               </select>
                               <br><br>
@@ -168,8 +190,30 @@
                               Kind: <select name="chapter" id="chapter1">
                                 <option value="" selected="selected">Please select topic first</option>
                               </select>
-                              <br><br>
-                            <input type="submit" value="Submit" onclick="alert('Submitted successfully')">
+                              <br><br> -->
+                              ISBN: <input type="text" name="isbn" id="isbn">
+                              REGISTRATION NUMBER: <input type="text" name="reg-no" id="reg-no">
+                            <input type="submit" value="Submit" name="submit" onclick="alert('Submitted successfully')">
+                            <?php
+                              if (isset($_POST["submit"])) {
+                                $isbn = $_POST["isbn"];
+                                $reg = $_POST["reg-no"];
+                                $quantity = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM `books` WHERE ISBN=$isbn"));
+                                $q = $quantity["Quantity"];
+                                $p = $quantity["Price"];
+                                $updatelost = mysqli_query($conn, "INSERT INTO `lost`(`reg`, `isbn`, `price`) VALUES('$reg', '$isbn', $p)");
+                                if ($updatelost) {
+                                  $updatebooks = mysqli_query($conn, "UPDATE `books` SET `QUANTITY`=$q - 1  WHERE ISBN=$isbn");
+
+                                }
+                                if ($updatebooks && $updatelost) {
+                                  echo "updated records";
+                                } else {
+                                  echo "error updating records";
+                                }
+                              }
+                            ?>
+                            
                         </form>
                     </div>
                 </div>
