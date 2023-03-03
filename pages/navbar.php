@@ -18,8 +18,8 @@
                     <ul id="MenuItems">
                         <li><a href="index.php">Home</a></li>
                         <!-- <li><a href="index.html">Resources</a></li> -->
-                        <li><a href="index.html">Contact</a></li>
-                        <li><a href="index.html">About</a></li>
+                        <li><a href="index.php">Contact</a></li>
+                        <li><a href="index.php">About</a></li>
                         <li><a href="login.php">Account</a></li>
                     </ul>
                 </nav>

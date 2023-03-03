@@ -22,7 +22,6 @@
             $updatelost = mysqli_query($conn, "INSERT INTO `lost`(`reg`, `isbn`, `price`) VALUES('$reg', '$isbn', $p)");
             if ($updatelost) {
                 $updatebooks = mysqli_query($conn, "UPDATE `books` SET `QUANTITY`=$q - 1  WHERE ISBN=$isbn");
-
             }
             if ($updatebooks && $updatelost) {
                 echo "updated records";

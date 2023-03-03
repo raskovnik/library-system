@@ -71,27 +71,8 @@
                     <div class="card">
                         <i class="fa fa-file fa-2x"></i>
                         <h3>Add Books</h3>
+                        <button onclick="location.href='addBooks.php';">Add Books</button>
                         <p>Add new books to the database</p>                        
-                        <form id="LoginForm">
-                              <label>ISBN</label><br>
-                              <input type="text" clas="form-input" id="isbn" name="isbn" required><br>
-                              <label>Title</label><br>
-                              <input type="text" class="form-input" id="title" name="title" required><br>
-                              <label>Author</label><br>
-                              <input type="text" class="form-input" id="author" name="author" required><br>
-                              <label>Description</label><br>
-                              <input type="text" class="form-input" id="description" name="description" required><br>
-                              <label>Image</label><br>
-                              <input type="file" class="form-input" id="image" name="image" required><br>
-                              <label>Category</label><br>
-                              <input type="text" class="form-input" id="category" name="category" required><br>
-                              <label>Quantity</label><br>
-                              <input type="text" class="form-input" id="qty" name="qty" required><br>
-                              <label>Price</label><br>
-                              <input type="text" class="form-input" id="price" name="price" required><br>
-                              <br>
-                            <input type="submit" value="Submit" onclick="alert('Submitted successfully')">
-                        </form>
                     </div>
                 <div class="card" style="position:absolute; right:500px;">
                     <i class="fa fa-dollar fa-2x"></i>

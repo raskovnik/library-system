@@ -18,29 +18,33 @@
         <input type="submit" class="submit" id="submit" value="Login" name="submit"><br><br>
         <a href="forgot.php">Forgot Password</a><br><br>
         <a href="register.php">Create Account</a>
-    </form>
-    <?php
-        session_start();
-        include "../scripts/connect.php";
-        if (isset($_POST["submit"])) {
-            $reg = $_POST["reg-no"];
-            $pwd = $_POST["pwd"];
-        }
-        if($pwd == "admin" && $reg == "admin") {
-            $_SESSION["user"] = "admin";
-            header("location:dashboard.php");
-        }
-        $sql = "SELECT * FROM `users` WHERE reg=$reg";
-        if (mysqli_num_rows(mysqli_query($conn, $sql)) >= 1) {
-            $details = mysqli_fetch_assoc((mysqli_query($conn, $sql)));
-            if ($details["password"] == $pwd) {
-                $_SESSION["user"] = $reg;
-                header("location:index.php");
-            } else {
-                echo "Invalid login details";
+        <?php
+            session_start();
+            include "../scripts/connect.php";
+            if (isset($_POST["submit"])) {
+                $reg = $_POST["reg-no"];
+                $pwd = $_POST["pwd"];
             }
-        }
-    ?>
+            if($pwd == "admin" && $reg == "admin") {
+                $_SESSION["user"] = "admin";
+                header("location:dashboard.php");
+            }
+            $sql = "SELECT * FROM `users` WHERE reg=$reg";
+            if (mysqli_num_rows(mysqli_query($conn, $sql)) >= 1) {
+                $details = mysqli_fetch_assoc((mysqli_query($conn, $sql)));
+                if ($details["password"] == $pwd) {
+                    $_SESSION["user"] = $reg;
+                    header("location:index.php");
+                } else {
+                    echo "Invalid login details";
+                }
+            } else {
+                echo '<script>alert("Invalid login details")</script>';
+                echo "Invalid login details";
+            } 
+        ?>
+    </form>
+    
 	</article>
 </body>
 </html>
