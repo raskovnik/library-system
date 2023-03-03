@@ -29,6 +29,7 @@
                 <input type="text" class="form-input" id="price" name="price" required><br>
                 <br>
                 <input type="submit" class="submit" name="submit" id="submit" value="Add Book">
+                <a href="dashboard.php"><button>Back to Dashboard</a>
             </form>
         </article>
         <?php
