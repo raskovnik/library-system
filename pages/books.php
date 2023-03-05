@@ -27,18 +27,22 @@
                             if (!is_null($book)) {
                                 if ($j % 4 != 0) {
                                     echo '<div class="col-4">';
+                                        echo '<a href="bookDescription.php?isbn='.$book["ISBN"].'">';
                                         echo '<img src="../images/'.$book["image"].'">';
                                         echo '<h4>'.$book["Title"].'</h4>';
                                         echo '<span><b>ISBN</b>: '.$book["ISBN"].'</span>';
                                         echo '<p><b>Author</b>: '.$book["Author"].'</p>';
-                                    echo '</div>';
+                                        echo '</a>';
+                                echo '</div>';
                                 } else {
                                     echo '<div class="col-4">';
+                                        echo '<a href="bookDescription.php?isbn='.$book["ISBN"].'">';
                                         echo '<img src="../images/'.$book["image"].'">';
                                         echo '<h4>'.$book["Title"].'</h4>';
                                         echo '<span><b>ISBN</b>: '.$book["ISBN"].'</span>';
                                         echo '<p><b>Author</b>: '.$book["Author"].'</p>';
-                                    echo '</div>';
+                                        echo '</a>';
+                                echo '</div>';
                                     break;
                                 }
                             } else {
