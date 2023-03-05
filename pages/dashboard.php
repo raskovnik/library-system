@@ -101,7 +101,35 @@
                                 }
                                 }
                             ?>
-                        </form>
+                    </form>
+                </div>
+                <div class="card" style="position:absolute; right:200px;">
+                    <i class="fa fa-dollar fa-2x"></i>
+                    <h3>Update Books</h3>
+                    <p>Add books already existing in the database</p>
+                    <form method="POST" action="dashboard.php">
+                            ISBN: <input type="text" name="isbn" id="isbn">
+                            Quantity: <input type="number" name="qty" id="qty">
+                            <input type="submit" value="Submit" name="zubmit" onclick="alert('Submitted successfully')">
+                            <?php
+                                if (isset($_POST["zubmit"])) {
+                                    $isbn = $_POST["isbn"];
+                                    $qty = $_POST["qty"];
+                                    $curr = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM `books` WHERE ISBN=$isbn"))["Quantity"];
+                                    if ($curr) {
+                                        $qty+= $curr;
+                                        $res = mysqli_query($conn, "UPDATE `books` SET Quantity=$qty WHERE ISBN=$isbn");
+                                        if ($res) {
+                                            echo "updated books";
+                                        } else {
+                                            echo "Error updating records";
+                                        }
+                                    }
+
+                                }
+                            ?>
+                    </form>
+                    
                 </div>
                 </div>
     </body>
