@@ -62,7 +62,23 @@
                     <i class="fa fa-dollar fa-2x"></i>
                     <h3>Invoices</h3>
                     <p>Issuing invoices to students with lost books</p>
-                    <button>Issue invoices</button>
+                    <form method="POST" action="dashboard.php">
+                        <label for="reg">Registration Number</label>
+                        <input type="text" name="reg" id="reg">
+                        <button name="gen" id="name">Issue invoices</button>
+                    </form>
+                    <?php
+                        if (array_key_exists("gen", $_POST)) {
+                            $reg = $_POST["reg"];
+                            $sql = "SELECT * FROM `lost`  WHERE `reg`=$reg";
+                            $res = mysqli_query($conn, $sql);
+                            if (mysqli_num_rows($res) >= 1) {
+                                header("location:invoice.php?reg=$reg");
+                            } else {
+                                echo "Student has not lost any books";
+                            }
+                        }
+                    ?>
                 </div>
                 </div>
                 <section class="addremove">
