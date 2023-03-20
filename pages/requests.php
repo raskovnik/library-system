@@ -17,40 +17,32 @@
             $sql = "SELECT * FROM `lost`  WHERE `reg`=$reg";
         ?>
 
-        <center><h2>Lost Books</h2></center>
+        <center><h2>Borrow Requests</h2></center>
         <table>
             <tr>
                 <th>ID</th>
                 <th>Registration Number</th>
                 <th>ISBN</th>
                 <th>Title</th>
-                <th>Price</th>
+                <th>Borrow Date</th>
             </tr>
             <?php
                 $sql = "SELECT * FROM `requests`";
                 $result = mysqli_query($conn, $sql);
                 if ($result) {
                     $count = 1;
-                    $books = 0;
-                    $cost = 0;
                     while ($row = mysqli_fetch_assoc($result)) {
                         $isbn = $row["isbn"];
                         $book = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM `books` WHERE ISBN=$isbn"));
                         echo '<tr>';
-                            echo '<td>'.$row["id"].'</td>';
+                            echo '<td><a href="viewrequest.php?reg='.$row["reg"].'">'.$count.'</a></td>';
                             echo '<td>'.$row["reg"].'</td>';
                             echo '<td>'.$row["isbn"].'</td>';
                             echo '<td>'.$book["Title"].'</td>';
-                            echo '<td>Ksh. '.number_format($row["price"], 2).'</td>';
+                            echo '<td>'.$row["request_date"].'</td>';
                             $count += 1;
-                            $books += 1;
-                            $cost += $row["price"];
                         echo '</tr>';
                     }
-                    echo '<tr>';
-                        echo '<td colspan="3"><b>Totals</b></td>';
-                        echo '<td><center><b>'.$books.'</b></center></td>';
-                        echo '<td><center><b>Ksh. '.number_format($cost, 2).'</b></center></td>';
                 }
             ?>
             <a href="dashboard.php"><button>Back to Dashboard</a>
