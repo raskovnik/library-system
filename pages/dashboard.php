@@ -30,7 +30,10 @@
                     <li><a href="#" class="notification">
                         <!-- <i class="fa fa-home fa-2x"></i> -->
                         <span class="nav-item">Borrow Requests</span>
-                        <span class="badge" style="color: cyan; border-radius: 50%;">3</span>
+                        <?php
+                            $requests = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `requests`"));
+                        ?>
+                        <span class="badge" style="color: cyan; border-radius: 50%;"><?php echo $requests?></span>
                     </a></li>
                     <li><a href="">
                         <i class="fa fa-bar-chart fa-2x"></i>
