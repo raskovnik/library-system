@@ -27,7 +27,7 @@
                         <i class="fa fa-user fa-2x"></i>
                         <span class="nav-item">Home</span>
                     </a></li>
-                    <li><a href="#" class="notification">
+                    <li><a href="requests.php" class="notification">
                         <!-- <i class="fa fa-home fa-2x"></i> -->
                         <span class="nav-item">Borrow Requests</span>
                         <?php
