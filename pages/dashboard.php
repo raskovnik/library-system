@@ -23,13 +23,17 @@
                         <img src="../images/images.jpeg">
                         <span class="nav-item">Dashboard</span>
                     </a></li>
-                    <li><a href="#">
-                        <i class="fa fa-home fa-2x"></i>
-                        <span class="nav-item">Home</span>
-                    </a></li>
                     <li><a href="">
                         <i class="fa fa-user fa-2x"></i>
-                        <span class="nav-item">Profile</span>
+                        <span class="nav-item">Home</span>
+                    </a></li>
+                    <li><a href="#" class="notification">
+                        <!-- <i class="fa fa-home fa-2x"></i> -->
+                        <span class="nav-item">Borrow Requests</span>
+                        <?php
+                            $requests = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `requests`"));
+                        ?>
+                        <span class="badge" style="color: cyan; border-radius: 50%;"><?php echo $requests?></span>
                     </a></li>
                     <li><a href="">
                         <i class="fa fa-bar-chart fa-2x"></i>
@@ -108,7 +112,6 @@
                                 $updatelost = mysqli_query($conn, "INSERT INTO `lost`(`reg`, `isbn`, `price`) VALUES('$reg', '$isbn', $p)");
                                 if ($updatelost) {
                                     $updatebooks = mysqli_query($conn, "UPDATE `books` SET `QUANTITY`=$q - 1  WHERE ISBN=$isbn");
-
                                 }
                                 if ($updatebooks && $updatelost) {
                                     echo "updated records";

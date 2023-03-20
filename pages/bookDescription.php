@@ -41,7 +41,7 @@
                         echo '<p>Ksh. '.number_format($row["Price"], 2).'</p>';
                         echo '<div>';
                         echo '<form method="POST">';
-                            echo '<input type="submit" class="btn" name="buy" id="buy" value="Borrow Book">';
+                            echo '<input type="submit" class="btn" name="borrow" id="borrow" value="Borrow Book">';
                         echo '</form>';
                         echo '</div>';
                     echo '</div>';
@@ -50,6 +50,19 @@
             echo '<h3>Similar Books</h3>';
             echo '<br>';
             echo '<br>';
+
+            if (array_key_exists("borrow", $_POST)) {
+                $date = date("Y/m/d");
+                $sql = "INSERT INTO `requests` VALUES('234', '$isbn', '$date')";
+                $query = mysqli_query($conn, $sql);
+                if ($query) {
+                    echo "added record";
+                    header("location:index.php");
+                } else {
+                    echo "Error adding record to database";
+                }
+            }
+
             $tag = $row["Category"];
 
             $sql = "SELECT * FROM `books` WHERE Category LIKE '%$tag%' and ISBN!=$isbn";
