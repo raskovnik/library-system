@@ -53,7 +53,8 @@
 
             if (array_key_exists("borrow", $_POST)) {
                 $date = date("Y/m/d");
-                $sql = "INSERT INTO `requests` VALUES('234', '$isbn', '$date')";
+                //TODO: Fix line below to pass the session variable $_SESSION["user"]
+                $sql = "INSERT INTO `requests` VALUES('2324', '$isbn', '$date')"; 
                 $query = mysqli_query($conn, $sql);
                 if ($query) {
                     echo "added record";
