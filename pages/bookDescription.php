@@ -63,7 +63,8 @@
                 $sql = "INSERT INTO `requests` VALUES('2324', '$isbn', '$date')"; 
                 $query = mysqli_query($conn, $sql);
                 if ($query) {
-                    echo "added record";
+                    $return_date = date("Y/m/d", strtotime($date."+ 14 days"));
+                    $borrows = mysqli_query($conn, "INSERT INTO `allborrows`(`reg`, `isbn`, `borrow`, `return_date`) VALUES('2324','$isbn','$date', '$return_date')");
                     header("location:index.php");
                 } else {
                     echo "Error adding record to database";
