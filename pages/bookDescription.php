@@ -23,7 +23,13 @@
 
             echo '<div class="col-4">';
                 echo '<div class="flex-container">';
-                    echo '<div><img style="width: 75%; padding: auto; margin: auto" src="../images/'.$row["image"].'"></div>';
+                    echo '<div><img src="../images/'.$row["image"].'" style="width: 180px; height: 300px; width: 25%;
+                    margin: 3px;
+                    background-color: powderblue;
+                    text-align: center;
+                    border-radius: 20px;
+                    padding: 5px;
+                    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);"></div>';
                     echo '<div>';
                         echo '<p><b>Author</b></p>';
                         echo '<p color="green"><a href="#">'.$row["Author"].'</a></p>';
@@ -76,7 +82,13 @@
                     while ($count <= 4 && $book = mysqli_fetch_assoc($similar)) {
                         echo '<div class="col-4">';
                             echo '<a href="bookDescription.php?isbn='.$book["ISBN"].'">';
-                            echo '<img src="../images/'.$book["image"].'">';
+                            echo '<img src="../images/'.$book["image"].'" style="width: 180px; height: 300px; width: 25%;
+                            margin: 3px;
+                            background-color: powderblue;
+                            text-align: center;
+                            border-radius: 20px;
+                            padding: 5px;
+                            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);">';
                             echo '<h4>'.$book["Title"].'</h4>';
                             echo '<span><b>ISBN</b>: '.$book["ISBN"].'</span>';
                             echo '<p><b>Author</b>: '.$book["Author"].'</p>';

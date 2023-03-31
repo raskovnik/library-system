@@ -57,7 +57,7 @@ p{
 }
 .btn{
     display: inline-block;
-    background: palevioletred;
+    background: rgba(0, 0, 89, 0.452);
     color: white;
     padding: 8px 30px;
     margin: 20px 0;

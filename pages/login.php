@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="../css/style.css">
     <title>Document</title>
 </head>
-<body>
+<bod style="background: url('../images/bg.jpg'); background-size: cover; background-position: center;">
 <article>
     <form method="POST" action="login.php">
         <label>Registration Number</label><br>
-        <input required type="text" clas="form-input" id="reg-no" name="reg-no"><br>
+        <input required type="text" clas="form-input" id="reg-no" name="reg-no" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);"><br>
         <label>Password</label><br>
-        <input required type="password" class="form-input" id="pwd" name="pwd"><br><br>
-        <input type="submit" class="submit" id="submit" value="Login" name="submit"><br><br>
+        <input required type="password" class="form-input" id="pwd" name="pwd" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);"><br><br>
+        <input type="submit" class="submit" id="submit" value="Login" name="submit" style="width:100%; height: 30px; border-radius:10px; padding: 7px 15px; margin-top: 15px ;cursor: pointer;background-color: rgba(0, 0, 89, 0.452);"><br><br>
         <a href="forgot.php">Forgot Password</a><br><br>
         <a href="register.php">Create Account</a>
         <?php

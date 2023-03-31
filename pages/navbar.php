@@ -11,8 +11,8 @@
     <div class="container">
             <div class="navbar">
                 <form method="POST" action="navbar.php">
-                    <input required type="text" name="search" style="width: 65%" placeholder="Search Books">
-                    <input type="submit" name="submit" value="Search" style="width: 30%">
+                    <input required type="text" name="search" style="width: 65%; border-radius:10px;border-color: rgba(0, 0, 89, 0.452)" placeholder="Search Books">
+                    <input type="submit" name="submit" value="Search" style="width: 30%; border-radius:10px; padding: 7px 15px; margin-top: 15px ;cursor: pointer;background-color: rgba(0, 0, 89, 0.452);">
                 </form>
                 <nav>
                     <ul id="MenuItems">

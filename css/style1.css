@@ -314,3 +314,6 @@ table {
     background: #ff523b;
     color: #fff;
 }
+.submit span:hover{
+    color:rgb(2, 2, 116);
+}

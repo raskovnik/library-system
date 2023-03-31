@@ -13,6 +13,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-wZsYN0TcWbpg8xGy+NTtTzGSLAAsV7/Z8K0TBuV7oLeQJ4fi4ddX4E4zKl+TGPTBwDrM13VpGWjCxuI7VGlGGQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     </head>
     <body>
@@ -63,12 +64,12 @@
                         <button onclick="location.href='report.php';">All Books</button>
                     </div>
                 <div class="card">
-                    <i class="fa fa-dollar fa-2x"></i>
+                    <i class="fa fa-file fa-2x"></i>
                     <h3>Invoices</h3>
                     <p>Issuing invoices to students with lost books</p>
                     <form method="POST" action="dashboard.php">
                         <label for="reg">Registration Number</label>
-                        <input type="text" name="reg" id="reg">
+                        <input type="text" name="reg" id="reg" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);">
                         <button name="gen" id="name">Issue invoices</button>
                     </form>
                     <?php
@@ -89,19 +90,19 @@
                     <h1>Add & Remove</h1>
                     <div class="book">
                     <div class="card">
-                        <i class="fa fa-file fa-2x"></i>
+                        <i class="fa fa-solid fa-book fa-2x"></i>
                         <h3>Add Books</h3>
                         <button onclick="location.href='addBooks.php';">Add Books</button>
                         <p>Add new books to the database</p>                        
                     </div>
-                <div class="card" style="position:absolute; right:500px;">
-                    <i class="fa fa-dollar fa-2x"></i>
+                <div class="card" style="position:absolute; right:600px;">
+                    <i class="fa fa-remove fa-2x"></i>
                     <h3>Remove Books</h3>
                     <p>Remove lost or damaged books from the database</p>
                     <form id="RegForm" method="POST" action="dashboard.php">
-                            ISBN: <input type="text" name="isbn" id="isbn">
-                            REGISTRATION NUMBER: <input type="text" name="reg-no" id="reg-no">
-                            <input type="submit" value="Submit" name="submit" onclick="alert('Submitted successfully')">
+                            ISBN: <input type="text" name="isbn" id="isbn" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);">
+                            REGISTRATION NUMBER: <input type="text" name="reg-no" id="reg-no" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);">
+                            <input type="submit" value="Submit" name="submit" onclick="alert('Submitted successfully')" style="width:100%; height: 30px; border-radius:10px; padding: 7px 15px; margin-top: 15px ;cursor: pointer;background-color: rgba(0, 0, 89, 0.452);">
                             <?php
                                 if (isset($_POST["submit"])) {
                                 $isbn = $_POST["isbn"];
@@ -122,14 +123,14 @@
                             ?>
                     </form>
                 </div>
-                <div class="card" style="position:absolute; right:200px;">
-                    <i class="fa fa-dollar fa-2x"></i>
+                <div class="card" style="position:absolute; right:100px;">
+                    <i class="fa fa-refresh fa-2x" aria-hidden="true"></i>
                     <h3>Update Books</h3>
                     <p>Add books already existing in the database</p>
                     <form method="POST" action="dashboard.php">
-                            ISBN: <input type="text" name="isbn" id="isbn">
-                            Quantity: <input type="number" name="qty" id="qty">
-                            <input type="submit" value="Submit" name="zubmit" onclick="alert('Submitted successfully')">
+                            ISBN: <input type="text" name="isbn" id="isbn" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);">
+                            Quantity: <input type="number" name="qty" id="qty" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);">
+                            <input type="submit" value="Submit" name="zubmit" onclick="alert('Submitted successfully')" style="width:100%; height: 30px; border-radius:10px; padding: 7px 15px; margin-top: 15px ;cursor: pointer;background-color: rgba(0, 0, 89, 0.452);">
                             <?php
                                 if (isset($_POST["zubmit"])) {
                                     $isbn = $_POST["isbn"];

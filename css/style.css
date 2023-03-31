@@ -6,6 +6,9 @@
  }
  body{
     font-family: 'Poppins', sans-serif;
+    background: url('../images/bg.jpg');
+    /* background-position: center;
+    background-size: cover; */
  }
  .navbar{
     display: flex;
@@ -83,7 +86,7 @@ p{
 .col-4{
     flex-basis: 25%;
     margin: auto;
-    min-width: 200px;
+    min-width: 100px;
     margin-bottom: 50px;
     transition: transform 0.5s;
 }
@@ -440,10 +443,10 @@ form a{
     font-family: custom;
     src: url('Poppins-Bold.ttf');
 }
-body{
-    background: url('../images/background.jpg');
+/* body{
+    background: url('../images/bg.jpg');
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
+} */
 .log {
 width: 80%;  
 margin: auto;  
@@ -458,13 +461,14 @@ article {
     height: auto;
     float: auto;
     padding: 20px; 
-    background-color: whitesmoke;
+    background-color: powderblue;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    margin-top: 15%;
-    margin-left:450px;
+    margin-top: 10%;
+    margin-left: 580px;
+    position: center;
 }
 .flex-container {
     display:flex;
