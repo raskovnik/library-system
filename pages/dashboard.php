@@ -26,7 +26,7 @@
                     </a></li>
                     <li><a href="">
                         <i class="fa fa-user fa-2x"></i>
-                        <span class="nav-item">Home</span>
+                        <span class="nav-item">Return Books</span>
                     </a></li>
                     <li><a href="requests.php" class="notification">
                         <!-- <i class="fa fa-home fa-2x"></i> -->
@@ -95,16 +95,17 @@
                         <button onclick="location.href='addBooks.php';">Add Books</button>
                         <p>Add new books to the database</p>                        
                     </div>
-                <div class="card" style="position:absolute; right:600px;">
+                <div class="card" style="position:absolute; right:500px;">
                     <i class="fa fa-remove fa-2x"></i>
-                    <h3>Remove Books</h3>
-                    <p>Remove lost or damaged books from the database</p>
+                    <h3>Return Books</h3>
+                    <p>Accept or Reject Borrowed Books</p>
                     <form id="RegForm" method="POST" action="dashboard.php">
                             ISBN: <input type="text" name="isbn" id="isbn" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);">
                             REGISTRATION NUMBER: <input type="text" name="reg-no" id="reg-no" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);">
-                            <input type="submit" value="Submit" name="submit" onclick="alert('Submitted successfully')" style="width:100%; height: 30px; border-radius:10px; padding: 7px 15px; margin-top: 15px ;cursor: pointer;background-color: rgba(0, 0, 89, 0.452);">
+                            <button name="accept" id="accept" style="width:100%; height: 30px; border-radius:10px; padding: 7px 15px; margin-top: 15px ;cursor: pointer;background-color: green;">Accept</button>
+                            <button name="reject" id="reject" style="width:100%; height: 30px; border-radius:10px; padding: 7px 15px; margin-top: 15px ;cursor: pointer;background-color: red;">Reject</button>                            
                             <?php
-                                if (isset($_POST["submit"])) {
+                            if (array_key_exists("reject", $_POST)) {
                                 $isbn = $_POST["isbn"];
                                 $reg = $_POST["reg-no"];
                                 $quantity = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM `books` WHERE ISBN=$isbn"));
@@ -113,13 +114,25 @@
                                 $updatelost = mysqli_query($conn, "INSERT INTO `lost`(`reg`, `isbn`, `price`) VALUES('$reg', '$isbn', $p)");
                                 if ($updatelost) {
                                     $updatebooks = mysqli_query($conn, "UPDATE `books` SET `QUANTITY`=$q - 1  WHERE ISBN=$isbn");
+                                    $removeborrow = mysqli_query($conn, "DELETE * FROM `borrow` WHERE reg=$reg");
                                 }
-                                if ($updatebooks && $updatelost) {
+                                if ($updatebooks && $updatelost && $removeborrow) {
                                     echo "updated records";
                                 } else {
                                     echo "error updating records";
+                                }                            
+                            }
+
+                            if (array_key_exists("accept", $_POST)) {
+                                $isbn = $_POST["isbn"];
+                                $reg = $_POST["reg-no"];
+                                $quantity = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM `books` WHERE ISBN=$isbn"));
+                                $q = $quantity["Quantity"];
+                                $removeborrow = mysqli_query($conn, "DELETE FROM `borrow` WHERE reg='$reg'");
+                                if ($removeborrow) {
+                                    $updatecount = mysqli_query($conn, "UPDATE `books` SET `QUANTITY`=$q + 1  WHERE ISBN=$isbn");  
                                 }
-                                }
+                            }
                             ?>
                     </form>
                 </div>
