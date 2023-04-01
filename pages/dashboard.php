@@ -1,6 +1,7 @@
 <!DOCTYPE <!DOCTYPE html>
 <?php
   include "../scripts/connect.php";
+  include "access.php";
   session_start();
 ?>
 <html>
