@@ -35,12 +35,6 @@
                                         echo '<a href="login.php">Account</a>'; 
                                     }
                                 ?>
-                                <!-- <a href="#">Account</a>
-                                <div class="dropdown-content" style="text-align: left;">
-                                    <a href="#">Borrow History</a>
-                                    <a href="#">Lost Books</a>
-                                    <a href="#">Log Out</a>
-                                </div> -->
                             </div> 
                         </li>
                     </ul>
