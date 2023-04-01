@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Book Info</title>
     <!-- <link rel="stylesheet" href="../css/style.css"> -->
         <link rel="stylesheet" href="../css/books.css">
 </head>
@@ -13,6 +13,7 @@
     <?php
         include "navbar.php";
         include "../scripts/connect.php";
+        session_start();
     ?>
     <?php
         $isbn = $_GET["isbn"];
@@ -23,7 +24,7 @@
 
             echo '<div class="col-4">';
                 echo '<div class="flex-container">';
-                    echo '<div><img src="../images/'.$row["image"].'" style="width: 180px; height: 300px; width: 25%;
+                    echo '<div><img src="../images/'.$row["image"].'" style="width: 180px; width: 100%;
                     margin: 3px;
                     background-color: powderblue;
                     text-align: center;
@@ -59,20 +60,23 @@
 
             if (array_key_exists("borrow", $_POST)) {
                 $date = date("Y/m/d");
-                //TODO: Fix line below to pass the session variable $_SESSION["user"]
-                $sql = "INSERT INTO `requests` VALUES('2324', '$isbn', '$date')"; 
-                $query = mysqli_query($conn, $sql);
-                if ($query) {
-                    $return_date = date("Y/m/d", strtotime($date."+ 14 days"));
-                    $borrows = mysqli_query($conn, "INSERT INTO `allborrows`(`reg`, `isbn`, `borrow`, `return_date`) VALUES('2324','$isbn','$date', '$return_date')");
-                    header("location:index.php");
+                if (isset($_SESSION["user"])) {
+                    $sesh_user = $_SESSION["user"];
+                    $sql = "INSERT INTO `requests` VALUES('$sesh_user', '$isbn', '$date')"; 
+                    $query = mysqli_query($conn, $sql);
+                    if ($query) {
+                        $return_date = date("Y/m/d", strtotime($date."+ 14 days"));
+                        $borrows = mysqli_query($conn, "INSERT INTO `allborrows`(`reg`, `isbn`, `borrow`, `return_date`) VALUES('$sesh_user','$isbn','$date', '$return_date')");
+                        header("location:index.php");
+                    } else {
+                        echo '<script>alert("Can\'t borrow the book at the moment")</script>';
+                    }
                 } else {
-                    echo "Error adding record to database";
+                    echo '<script>alert("You need to Login to borrow a book")</script>';
                 }
             }
 
             $tag = $row["Category"];
-
             $sql = "SELECT * FROM `books` WHERE Category LIKE '%$tag%' and ISBN!=$isbn";
             $similar = mysqli_query($conn, $sql);
 
@@ -83,13 +87,13 @@
                     while ($count <= 4 && $book = mysqli_fetch_assoc($similar)) {
                         echo '<div class="col-4">';
                             echo '<a href="bookDescription.php?isbn='.$book["ISBN"].'">';
-                            echo '<img src="../images/'.$book["image"].'" style="width: 180px; height: 300px; width: 25%;
-                            margin: 3px;
-                            background-color: powderblue;
-                            text-align: center;
-                            border-radius: 20px;
-                            padding: 5px;
-                            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);">';
+                            echo '<img src="../images/'.$book["image"].'" style="width: 180px;;
+                                        margin: 3px;
+                                        background-color: powderblue;
+                                        text-align: center;
+                                        border-radius: 20px;
+                                        padding: 5px;
+                                        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);">';
                             echo '<h4>'.$book["Title"].'</h4>';
                             echo '<span><b>ISBN</b>: '.$book["ISBN"].'</span>';
                             echo '<p><b>Author</b>: '.$book["Author"].'</p>';
