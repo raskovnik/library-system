@@ -44,7 +44,7 @@
                         <i class="fa fa-cog fa-2x"></i>
                         <span class="nav-item">Settings</span>
                     </a></li>
-                    <li><a href="" class="logout">
+                    <li><a href="logout.php" class="logout">
                         <i class="fa fa-sign-out fa-2x"></i>
                         <span class="nav-item">Log out</span>
                     </a></li>
