@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php
     include "../scripts/connect.php";
+    session_start();
+    include "access.php";
 ?>
 <html lang="en">
 <head>

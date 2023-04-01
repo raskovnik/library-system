@@ -17,6 +17,7 @@
     ?>
     <?php
         $isbn = $_GET["isbn"];
+        $_SESSION["page"] = "bookDescription.php?isbn=$isbn";
         $sql = "SELECT * FROM `books` WHERE `ISBN`=$isbn";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {
