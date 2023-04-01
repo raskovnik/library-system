@@ -20,7 +20,29 @@
                         <!-- <li><a href="index.html">Resources</a></li> -->
                         <li><a href="index.php">Contact</a></li>
                         <li><a href="index.php">About</a></li>
-                        <li><a href="login.php">Account</a></li>
+                        <li>
+                            <div class="dropdown">
+                                <?php
+                                    session_start();
+                                    if (isset($_SESSION["user"])) {
+                                        echo '<a href="#">Account</a>';
+                                        echo '<div class="dropdown-content" style="text-align: left;">';
+                                            echo '<a href="#">Borrow History</a>';
+                                            echo '<a href="#">Lost Books</a>';
+                                            echo '<a href="logout.php">Log Out</a>';
+                                        echo '</div>';
+                                    } else {
+                                        echo '<a href="login.php">Account</a>'; 
+                                    }
+                                ?>
+                                <!-- <a href="#">Account</a>
+                                <div class="dropdown-content" style="text-align: left;">
+                                    <a href="#">Borrow History</a>
+                                    <a href="#">Lost Books</a>
+                                    <a href="#">Log Out</a>
+                                </div> -->
+                            </div> 
+                        </li>
                     </ul>
                 </nav>
             </div>
