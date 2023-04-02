@@ -16,7 +16,6 @@
             $reg = $_GET["reg"];
             $sql = "SELECT * FROM `lost`  WHERE `reg`=$reg";
         ?>
-
         <center><h2>Lost Books</h2></center>
         <table>
             <tr>
