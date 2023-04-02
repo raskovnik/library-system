@@ -27,12 +27,14 @@
                 <th>Price</th>
             </tr>
             <?php
-                $sql = "SELECT * FROM `requests`";
                 $result = mysqli_query($conn, $sql);
                 if ($result) {
                     $count = 1;
                     $books = 0;
                     $cost = 0;
+                    echo '<tr>';
+                        echo '<td colspan="5"><center>Lost Books</center></td>';
+                    echo '</tr>';
                     while ($row = mysqli_fetch_assoc($result)) {
                         $isbn = $row["isbn"];
                         $book = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM `books` WHERE ISBN=$isbn"));
@@ -51,6 +53,42 @@
                         echo '<td colspan="3"><b>Totals</b></td>';
                         echo '<td><center><b>'.$books.'</b></center></td>';
                         echo '<td><center><b>Ksh. '.number_format($cost, 2).'</b></center></td>';
+                    echo '</tr>';
+                    $overdue = mysqli_query($conn, "SELECT * FROM `borrow` WHERE `reg`=$reg AND `return_date`<CURDATE()");
+                    echo '<tr>';
+                        echo '<td colspan="5"><center>Overdue Books</center></td>';
+                    echo '</tr>';
+
+                    if ($overdue) {
+                        $count = 1;
+                        $total_penalty = 0;
+                        while ($row = mysqli_fetch_assoc($overdue)) {
+                            $isbn = $row["isbn"];
+                            $book = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM `books` WHERE ISBN=$isbn"));
+                            // $penalty = ((date("Y-m-d") - $row["return_date"]));
+                            $penalty =  round((time() - strtotime($row["return_date"])) / (60 * 60 * 24)) * 15;
+                            $total_penalty+=$penalty;
+                            echo '<tr>';
+                                // echo '<td><a href="viewrequest.php?reg='.$row["reg"].'">'.$count.'</a></td>';
+                                echo '<td>'.$count.'</td>';
+                                echo '<td>'.$row["reg"].'</td>';
+                                echo '<td>'.$row["isbn"].'</td>';
+                                echo '<td>'.$book["Title"].'</td>';
+                                echo '<td>Ksh. '.number_format($penalty, 2).'</td>';
+                                $count += 1;
+                            echo '</tr>';
+                        }
+                        echo '<tr>';
+                            echo '<td colspan="4"><b>Totals</b></td>';
+                            // echo '<td><center><b>'.$books.'</b></center></td>';
+                            echo '<td><center><b>Ksh. '.number_format($total_penalty, 2).'</b></center></td>';
+                        echo '</tr>';
+                        echo '<tr>';
+                        echo '<td colspan="4"><b>Grand Total</b></td>';
+                        // echo '<td><center><b>'.$books.'</b></center></td>';
+                        echo '<td><center><b>Ksh. '.number_format($total_penalty + $cost, 2).'</b></center></td>';
+                    echo '</tr>';
+                    }
                 }
             ?>
             <a href="dashboard.php"><button>Back to Dashboard</a>
