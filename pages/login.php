@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Document</title>
+    <title>Login</title>
 </head>
 <bod style="background: url('../images/bg.jpg'); background-size: cover; background-position: center;">
 <article>
@@ -30,16 +30,17 @@
                 header("location:dashboard.php");
             }
             $sql = "SELECT * FROM `users` WHERE reg=$reg";
-            if (mysqli_num_rows(mysqli_query($conn, $sql)) >= 1) {
+            $user_res = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($user_res) >= 1) {
                 $details = mysqli_fetch_assoc((mysqli_query($conn, $sql)));
                 if ($details["password"] == $pwd) {
                     $_SESSION["user"] = $reg;
                     header("location:index.php");
                 } else {
-                    echo "Invalid login details";
+                    echo '<script>alert("Invalid Login Details")</script>';
                 }
             } else {
-                echo '<script>alert("Invalid login details")</script>';
+                echo '<script>alert("Invalid login details 2")</script>';
                 echo "Invalid login details";
             } 
         ?>
