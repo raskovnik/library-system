@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Info</title>
     <!-- <link rel="stylesheet" href="../css/style.css"> -->
-        <link rel="stylesheet" href="../css/books.css">
+    <link rel="stylesheet" href="../css/books.css">
+    <!-- <script src="main.js"></script> -->
 </head>
 <body>
     <?php
@@ -70,10 +70,10 @@
                         $borrows = mysqli_query($conn, "INSERT INTO `allborrows`(`reg`, `isbn`, `borrow`, `return_date`) VALUES('$sesh_user','$isbn','$date', '$return_date')");
                         header("location:index.php");
                     } else {
-                        echo '<script>alert("Can\'t borrow the book at the moment")</script>';
+                        echo '<script>window.alert("Can\'t borrow the book at the moment");</script>';
                     }
                 } else {
-                    echo '<script>alert("You need to Login to borrow a book")</script>';
+                    echo '<script>alert("You need to Login to borrow a book");</script>';
                 }
             }
 
