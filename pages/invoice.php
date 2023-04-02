@@ -65,11 +65,9 @@
                         while ($row = mysqli_fetch_assoc($overdue)) {
                             $isbn = $row["isbn"];
                             $book = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM `books` WHERE ISBN=$isbn"));
-                            // $penalty = ((date("Y-m-d") - $row["return_date"]));
                             $penalty =  round((time() - strtotime($row["return_date"])) / (60 * 60 * 24)) * 15;
                             $total_penalty+=$penalty;
                             echo '<tr>';
-                                // echo '<td><a href="viewrequest.php?reg='.$row["reg"].'">'.$count.'</a></td>';
                                 echo '<td>'.$count.'</td>';
                                 echo '<td>'.$row["reg"].'</td>';
                                 echo '<td>'.$row["isbn"].'</td>';
@@ -80,18 +78,16 @@
                         }
                         echo '<tr>';
                             echo '<td colspan="4"><b>Totals</b></td>';
-                            // echo '<td><center><b>'.$books.'</b></center></td>';
                             echo '<td><center><b>Ksh. '.number_format($total_penalty, 2).'</b></center></td>';
                         echo '</tr>';
                         echo '<tr>';
                         echo '<td colspan="4"><b>Grand Total</b></td>';
-                        // echo '<td><center><b>'.$books.'</b></center></td>';
                         echo '<td><center><b>Ksh. '.number_format($total_penalty + $cost, 2).'</b></center></td>';
                     echo '</tr>';
                     }
                 }
             ?>
-            <a href="dashboard.php"><button>Back to Dashboard</a>
+            <a href="dashboard.php"><button>Back</a>
         </table>
     </body>
 </html>
