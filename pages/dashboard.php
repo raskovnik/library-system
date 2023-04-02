@@ -70,28 +70,27 @@
                         <button onclick="location.href='lost.php';">Lost Books</button>
                         <button onclick="location.href='report.php';">All Books</button>
                     </div>
-                <div class="card">
-                    <i class="fa fa-file fa-2x"></i>
-                    <h3>Invoices</h3>
-                    <p>Issuing invoices to students with lost books</p>
-                    <form method="POST" action="dashboard.php">
-                        <label for="reg">Registration Number</label>
-                        <input type="text" name="reg" id="reg" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);">
-                        <button name="gen" id="name">Issue invoices</button>
-                    </form>
-                    <?php
-                        if (array_key_exists("gen", $_POST)) {
-                            $reg = $_POST["reg"];
-                            $sql = "SELECT * FROM `lost`  WHERE `reg`=$reg";
-                            $res = mysqli_query($conn, $sql);
-                            if (mysqli_num_rows($res) >= 1) {
-                                header("location:invoice.php?reg=$reg");
-                            } else {
-                                echo "Student has not lost any books";
+                    <div class="card">
+                        <i class="fa fa-file fa-2x"></i>
+                        <h3>Invoices</h3>
+                        <p>Issuing invoices to students with lost books</p>
+                        <form method="POST" action="dashboard.php">
+                            <label for="reg">Registration Number</label>
+                            <input type="text" name="reg" id="reg" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);">
+                            <!-- <input type="submit" name="gen" id="gen" value="Issue Invoice" onclick="location.href='report.php';"> -->
+                        </form>
+                        <script>
+                            function generateInvoice() {
+                                var reg = document.getElementById("reg").value;
+                                if (reg) {
+                                    location.href="invoice.php?reg="+reg;
+                                } else {
+                                    window.alert("You need to enter a registration number");
+                                }
                             }
-                        }
-                    ?>
-                </div>
+                        </script>
+                        <button name="gen" id="gen" onclick=generateInvoice()>Issue Invoice</button>
+                    </div>
                 </div>
                 <section class="addremove">
                     <h1>Add & Remove</h1>

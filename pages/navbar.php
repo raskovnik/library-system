@@ -27,8 +27,8 @@
                                     if (isset($_SESSION["user"])) {
                                         echo '<a href="#">Account</a>';
                                         echo '<div class="dropdown-content" style="text-align: left;">';
-                                            echo '<a href="#">Borrow History</a>';
-                                            echo '<a href="#">Lost Books</a>';
+                                            // echo '<a href="#">Borrow History</a>';
+                                            echo '<a href="invoice.php?reg='.$_SESSION["user"].'">Lost and Overdue Books</a>';
                                             echo '<a href="logout.php">Log Out</a>';
                                         echo '</div>';
                                     } else {
