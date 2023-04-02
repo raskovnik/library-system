@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="../css/style1.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-wZsYN0TcWbpg8xGy+NTtTzGSLAAsV7/Z8K0TBuV7oLeQJ4fi4ddX4E4zKl+TGPTBwDrM13VpGWjCxuI7VGlGGQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -25,12 +26,17 @@
                         <img src="../images/images.jpeg">
                         <span class="nav-item">Dashboard</span>
                     </a></li>
-                    <li><a href="">
-                        <i class="fa fa-user fa-2x"></i>
-                        <span class="nav-item">Return Books</span>
+                    <li><a href="overdue.php">
+                        <!-- <i class="fa fa-user fa-2x"></i> -->
+                        <i class="bi-alarm" style="font-size: 1rem; text-align: left; color: red;"></i>
+                        <span class="nav-item">Overdue Books</span>
+                        <?php
+                            $overdue = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `borrow` WHERE `return_date`<CURDATE()"));
+                        ?>
+                        <span class="badge" style="color: cyan; border-radius: 50%;"><?php echo $overdue?></span>
                     </a></li>
-                    <li><a href="requests.php" class="notification">
-                        <!-- <i class="fa fa-home fa-2x"></i> -->
+                    <li><a href="requests.php">
+                        <i class="bi bi-book" style="font-size: 1rem; text-align: left;"></i>
                         <span class="nav-item">Borrow Requests</span>
                         <?php
                             $requests = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `requests`"));
@@ -38,12 +44,12 @@
                         <span class="badge" style="color: cyan; border-radius: 50%;"><?php echo $requests?></span>
                     </a></li>
                     <li><a href="">
-                        <i class="fa fa-bar-chart fa-2x"></i>
+                        <i class="fa fa-bar-chart fa-2x" style="text-align: left;"></i>
                         <span class="nav-item">Analytics</span>
                     </a></li>
                     <li><a href="">
                         <i class="fa fa-cog fa-2x"></i>
-                        <span class="nav-item">Settings</span>
+                        <span class="nav-item" style="text-align: left;">Settings</span>
                     </a></li>
                     <li><a href="logout.php" class="logout">
                         <i class="fa fa-sign-out fa-2x"></i>
