@@ -88,7 +88,7 @@
                     while ($count <= 4 && $book = mysqli_fetch_assoc($similar)) {
                         echo '<div class="col-4">';
                             echo '<a href="bookDescription.php?isbn='.$book["ISBN"].'">';
-                            echo '<img src="../images/'.$book["image"].'" style="width: 180px;;
+                            echo '<img src="../images/'.$book["image"].'" style="width: 180px;
                                         margin: 3px;
                                         background-color: powderblue;
                                         text-align: center;
