@@ -148,7 +148,7 @@
                     <p>Add books already existing in the database</p>
                     <form method="POST" action="dashboard.php">
                             ISBN: <input type="text" name="isbn" id="isbn" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);">
-                            Quantity: <input type="number" name="qty" id="qty" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);">
+                            Quantity: <input type="number" min="1" name="qty" id="qty" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);">
                             <input type="submit" value="Submit" name="zubmit" onclick="alert('Submitted successfully')" style="width:100%; height: 30px; border-radius:10px; padding: 7px 15px; margin-top: 15px ;cursor: pointer;background-color: rgba(0, 0, 89, 0.452);">
                             <?php
                                 if (isset($_POST["zubmit"])) {
