@@ -65,20 +65,18 @@
                 if (isset($_FILES["image"])) {
                     $target_dir = "/library-system/images/";
                     if (move_uploaded_file($_FILES['image']['tmp_name'], $_SERVER['DOCUMENT_ROOT'].$target_dir.$_FILES['image']['name'])) {
-
                         echo '<script>window.alert("Added the image successfully")</script>';
+                        $result=mysqli_query($conn,$sql);
+                        if (($result)) {
+                            echo '<script> alert("Books added to the database!");</script>';
+                        } else {
+                            echo '<script> alert("ERROR:Please insert correct values in all fields!!! ");</script>';
+                        }
+                        mysqli_close($conn);
                     } else {
                         echo '<script>window.alert("Error uploading image")</script>';
                     }
                 }
-
-                $result=mysqli_query($conn,$sql);
-                if (($result)) {
-                    echo '<script> alert("Books added to the database!");</script>';
-                } else {
-                    echo '<script> alert("ERROR:Please insert correct values in all fields!!! ");</script>';
-                }
-                mysqli_close($conn);
             }
         ?>
     </body>
