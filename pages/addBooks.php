@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../css/style.css">
-    <title>Document</title>
+    <title>Add Books</title>
 </head>
     <body>
         <article>
@@ -50,16 +50,26 @@
                 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
                 // Check if the file is actually an image
-                $check = getimagesize($_FILES["image"]["tmp_name"]);
-                if($check !== false) {
-                    // Move the file to the destination directory if it's a valid image
-                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                        echo "Image uploaded successfully!";
+                // $check = getimagesize($_FILES["image"]["tmp_name"]);
+                // if($check !== false) {
+                //     // Move the file to the destination directory if it's a valid image
+                //     if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+                //         echo "Image uploaded successfully!";
+                //     } else {
+                //         echo "Error uploading image.";
+                //     }
+                // } else {
+                //     echo "File is not an image.";
+                // }
+
+                if (isset($_FILES["image"])) {
+                    $target_dir = "/library-system/images/";
+                    if (move_uploaded_file($_FILES['image']['tmp_name'], $_SERVER['DOCUMENT_ROOT'].$target_dir.$_FILES['image']['name'])) {
+
+                        echo '<script>window.alert("Added the image successfully")</script>';
                     } else {
-                        echo "Error uploading image.";
+                        echo '<script>window.alert("Error uploading image")</script>';
                     }
-                } else {
-                    echo "File is not an image.";
                 }
 
                 $result=mysqli_query($conn,$sql);
