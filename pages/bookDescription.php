@@ -17,6 +17,10 @@
     ?>
     <?php
         $isbn = $_GET["isbn"];
+        $user = $_SESSION["user"];
+        $pending = mysqli_num_rows(
+            mysqli_query($conn, "SELECT * FROM `borrow` WHERE `reg`=$user")) + 
+            mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `lost` WHERE `reg`=$user"));
         $_SESSION["page"] = "bookDescription.php?isbn=$isbn";
         $sql = "SELECT * FROM `books` WHERE `ISBN`=$isbn";
         $result = mysqli_query($conn, $sql);
@@ -49,7 +53,11 @@
                         echo '<p>Ksh. '.number_format($row["Price"], 2).'</p>';
                         echo '<div>';
                         echo '<form method="POST">';
-                            echo '<input type="submit" class="btn" name="borrow" id="borrow" value="Borrow Book">';
+                            if ($pending != 0) {
+                                echo '<input type="submit" class="btn1" name="borrow" id="borrow" value="Borrow Book" disabled="true">';
+                            } else {
+                                echo '<input type="submit" class="btn" name="borrow" id="borrow" value="Borrow Book"">';
+                            }
                         echo '</form>';
                         echo '</div>';
                     echo '</div>';
