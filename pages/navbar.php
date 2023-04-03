@@ -46,7 +46,7 @@
             if (isset($_POST["submit"])) {
                 $book = $_POST["search"];
                 if (!is_null($book) && $book != "") {
-                    header("location:search.php?book=$book");
+                    header("location:search.php?book=$book&page=1");
                 } else {
                     header("location:../pages/index.php");
                 }

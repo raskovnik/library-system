@@ -11,59 +11,66 @@
         include "../pages/navbar.php";
         $book = $_GET["book"];
         $sql = "SELECT * FROM `books` WHERE `Description` LIKE '%$book%' OR `Category` LIKE '%$book%' OR `Title` LIKE '%$book%'";
-        $result = mysqli_query($conn, $sql);;
-        if ($result) {
-            if (mysqli_num_rows($result) > 0) {
-                $count = mysqli_num_rows($result);
-                $ind = 1;
-                $rows = ceil($count / 4);
-                for ($i = 0; $i < $rows; $i++) {
-                    echo '<div class="row">';
-                    while ($ind <= $count) {
+        $result = mysqli_query($conn, $sql);
+        $pages = ceil(mysqli_num_rows($result) / 8);
+        $page = $_GET["page"];
+        render($page);
+        function render($page) {
+            session_start();
+            include "../scripts/connect.php";
+            $sql = "SELECT * FROM `books`";
+            $result = mysqli_query($conn, $sql);
+            mysqli_data_seek($result, ($page - 1)*8);
+            for ($i = 0; $i < 2; $i++) {
+                echo '<div class="row">';
+                try {
+                    for ($j = 1; $j <= 4; $j++) {
                         $book = mysqli_fetch_assoc($result);
-                        if ($ind % 4 != 0) {
-                            echo '<div class="col-4">';
-                                echo '<img src="../images/'.$book["image"].'" style="width: 180px;
-                                margin: 3px;
-                                background-color: powderblue;
-                                text-align: center;
-                                border-radius: 20px;
-                                padding: 5px;
-                                box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);">';
-                                echo '<h4>'.$book["Title"].'</h4>';
-                                echo '<span><b>ISBN</b>: '.$book["ISBN"].'</span>';
-                                echo '<p><b>Author</b>: '.$book["Author"].'</p>';
+                        if (!is_null($book)) {
+                            if ($j % 4 != 0) {
+                                echo '<div class="col-4">';
+                                    echo '<a href="bookDescription.php?isbn='.$book["ISBN"].'">';
+                                    echo '<img src="../images/'.$book["image"].'" style="width: 200px; height: 300px; margin: 3px; background-color: powderblue; text-align: center; border-radius: 20px; padding: 5px; box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);">';
+                                    echo '<h4>'.$book["Title"].'</h4>';
+                                    echo '<span><b>ISBN</b>: '.$book["ISBN"].'</span>';
+                                    echo '<p><b>Author</b>: '.$book["Author"].'</p>';
+                                    echo '</a>';
                             echo '</div>';
-                            $ind += 1;
+                            } else {
+                                echo '<div class="col-4">';
+                                    echo '<a href="bookDescription.php?isbn='.$book["ISBN"].'">';
+                                    echo '<img src="../images/'.$book["image"].'" style="width: 200px; height: 300px; margin: 3px; background-color: powderblue; text-align: center; border-radius: 20px; padding: 5px; box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);">';
+                                    echo '<h4>'.$book["Title"].'</h4>';
+                                    echo '<span><b>ISBN</b>: '.$book["ISBN"].'</span>';
+                                    echo '<p><b>Author</b>: '.$book["Author"].'</p>';
+                                    echo '</a>';
+                            echo '</div>';
+                                break;
+                            }
                         } else {
-                            echo '<div class="col-4">';
-                                echo '<img src="../images/'.$book["image"].'" style="width: 180px;
-                                margin: 3px;
-                                background-color: powderblue;
-                                text-align: center;
-                                border-radius: 20px;
-                                padding: 5px;
-                                box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);">';
-                                echo '<h4>'.$book["Title"].'</h4>';
-                                echo '<span><b>ISBN</b>: '.$book["ISBN"].'</span>';
-                                echo '<p><b>Author</b>: '.$book["Author"].'</p>';
-                            echo '</div>';
-                            $ind += 1;
                             break;
                         }
                     }
-                    echo '</div>';
+                } catch (Exception) {
+                    break;
                 }
-            } else {
-                echo "<div style='height: 200px;
-                width: 400px;            
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                margin-top: -100px;
-                margin-left: -200px;'>No book(s) found</div>";
+                echo '</div>';
             }
         }
     ?>
+        <div class="page-btn">
+            <?php
+                for ($i = 1; $i <= $pages; $i++) {
+                    if ($i == $page) {
+                        echo '<span style="background: #ff523b;"><a href="books.php?page='.$i.'">'.$i.'</a></span>';
+                    } else {
+                        echo '<span><a href="search.php?book='.$book.'&page='.$i.'">'.$i.'</a></span>';
+                    }
+                }
+                if ($i < $_SESSION["pages"]) {
+                    echo '<span><a href="books.php?page='.$i.'">'.$i.'</a></span>';
+                }
+            ?>
+        </div>
 </body>
 </html>
