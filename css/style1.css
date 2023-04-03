@@ -1,0 +1,333 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body {
+    background: url('../images/alexander-grey-eMP4sYPJ9x0-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(0, 0, 89, 0.452);
+}
+.container {
+    display:flex;
+}
+nav {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    /* height: 100vh; */
+    left: 0;
+    background: #fff;
+    width: 280px;
+    overflow: hidden;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+.logo img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+.logo span{
+    font-weight: bold;
+    padding-left: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+a {
+    position: relative;
+    color: rgb(85, 83, 83);
+    font-size: 14px;
+    display: table;
+    width: 280px;
+    padding: 10px;
+}
+nav .fa {
+    position: relative;
+    top: 5px;
+    width: 70px;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+}
+.nav-item {
+    position: relative;
+    top: 5px;
+    margin-left: 10px;
+}
+a:hover {
+    background: powderblue;
+}
+.logout {
+    position: absolute;
+    bottom: 10px;
+}
+/* Reports and invoices */
+.main {
+    position: relative;
+    padding: 20px;
+    width: 100%;
+}
+.main-top {
+    display: flex;
+    width: 100%;
+}
+.main-top i {
+    position: absolute;
+    right: 0;
+    margin:10px 30px;
+    color: powderblue;
+    cursor: pointer;
+}
+.book {
+    display: flex;
+    margin: top;
+}
+.book .card {
+    width: 25%;
+    margin: 10px;
+    background-color: powderblue;
+    text-align: center;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+.book .card h3 {
+    margin: 10px;
+    text-transform: capitalize;
+}
+.book .card p {
+    font-size: 12px;
+}
+.book .card button {
+    background: white;
+    padding: 7px 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+.book .card button:hover {
+    background:rgba(0, 0, 89, 0.452);
+}
+.book .card i {
+    font-size: 22px;
+    padding: 10px;
+}
+/* Add & Remove */
+.addremove {
+    margin-top: 20px;
+    text-transform: capitalize;
+}
+.addremove1 {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: powderblue;
+    border-radius: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+/* .addremove1 ul {
+    list-style: none;
+    display: flex;
+}
+.addremove1 ul li {
+    margin: 10px;
+    color: gray;
+    cursor: pointer;
+}
+.addremove1 ul .active {
+    color: black;
+    border-bottom: 1px solid black;   
+}
+.form-container{
+    background: powderblue;
+    width: 300px;
+    height: 400px;
+    position: relative;
+    text-align: center;
+    padding: 15px o;
+    margin: auto;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);
+    overflow: hidden;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.form-container span{
+    font-weight: bold;
+    padding: 0 10px;
+    color: #555;
+    cursor: pointer;
+    width: 100px;
+    display: inline-block;
+}
+.form-btn{
+    display: inline-block;
+}
+.form-container form{
+    max-width: 270px;
+    padding: 0px 20px;
+    position: relative;
+    top: 50px;
+    transition: transform 1s;
+}
+#Indicator{
+    width: 60%;
+    border: none;
+    background: #ff523b;
+    height: 2px;
+    margin-top: 0px;
+    transform: translateX(110px);
+    transition: transform 1s;
+}
+form .btn{
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0;
+}
+form .btn:focus{
+    outline: none;
+}
+form1{
+    left: -300px; 
+}
+form2{
+    left: 0;
+} */
+.form-container{
+    background: powderblue;
+    width: 300px;
+    height: 400px;
+    position: relative;
+    text-align: center;
+    padding: 15px o;
+    margin: auto;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);
+    overflow: hidden;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.form-container span{
+    font-weight: bold;
+    padding: 0 10px;
+    color: #555;
+    cursor: pointer;
+    width: 100px;
+    display: inline-block;
+}
+.form-btn{
+    display: inline-block;
+}
+.form-container form{
+    max-width: 270px;
+    padding: 0px 20px;
+    position: absolute;
+    top: 50px;
+    transition: transform 1s;
+}
+form input{
+    width: 100%;
+    height: 30px;
+    margin: 10px 0;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+}
+form .btn{
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0;
+}
+form .btn:focus{
+    outline: none;
+}
+#LoginForm{
+    left: -300px; 
+}
+#RegForm{
+    left: 0;
+}
+form a{
+    font-size: 12px;
+}
+#Indicator{
+    width: 60%;
+    border: none;
+    background: rgb(2, 2, 116);
+    height: 2px;
+    margin-top: 0px;
+    transform: translateX(110px);
+    transition: transform 1s;
+}
+
+
+tr:nth-child(even) {
+    background-color: rgba(150, 212, 212, 0.4);
+  }
+  
+  th:nth-child(even),td:nth-child(even) {
+    background-color: rgba(150, 212, 212, 0.4);
+  }
+
+table {
+    margin-left:auto;
+    margin-right: auto;
+}
+
+.notification {
+  /* background-color: #555; */
+  /* color: black; */
+  text-decoration: none;
+  padding: 15px 26px;
+  /* position: relative; */
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.notification:hover {
+    background: grey;
+}
+
+.page-btn{
+    margin: 0 auto 80px;
+}
+.page-btn span{
+    display: inline-block;
+    border: 1px solid #ff523b;
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
+.page-btn span:hover{
+    background: #ff523b;
+    color: #fff;
+}
+.submit span:hover{
+    color:rgb(2, 2, 116);
+}
+.req {
+    width: 450px;
+    height: 450px;
+    margin-left: 600px;
+    margin-top: 150px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: powderblue;
+    align-items: center;
+    text-align: center;
+    padding:50px;
+}
