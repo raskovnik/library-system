@@ -11,9 +11,9 @@
 <article>
     <form method="POST" action="register.php">
         <label>Name</label><br>
-        <input required type="text" clas="form-input" id="name" name="name" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);"><br>
+        <input required type="text" class="form-input" id="name" name="name" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);"><br>
         <label>Registration Number</label><br>
-        <input required type="text" clas="form-input" id="reg-no" name="reg-no" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);"><br>
+        <input required type="text" class="form-input" id="reg-no" name="reg-no" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);"><br>
         <label>Password</label><br>
         <input required type="password" class="form-input" id="pwd" name="pwd" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);"><br>
         <label>Confirm Password</label><br>

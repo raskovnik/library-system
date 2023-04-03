@@ -24,9 +24,9 @@
                 <label>Category</label><br>
                 <input type="text" class="form-input" id="category" name="category" required><br>
                 <label>Quantity</label><br>
-                <input type="text" class="form-input" id="qty" name="qty" required><br>
+                <input type="number" class="form-input" id="qty" name="qty" min="1" required><br>
                 <label>Price</label><br>
-                <input type="text" class="form-input" id="price" name="price" required><br>
+                <input type="number" class="form-input" id="price" name="price" min="1" required ><br>
                 <br>
                 <input type="submit" class="submit" name="submit" id="submit" value="Add Book">
                 <a href="dashboard.php"><button>Back to Dashboard</a>
