@@ -45,7 +45,7 @@
                 $qty=$_POST['qty'];
                 $price=$_POST['price'];
                 $sql="INSERT INTO books(ISBN,Title,Author,Category,Description,Price,Quantity,image) VALUES('$isbn','$title','$author','$category','$description','$price','$qty','$image')";
-                $target_dir = "images/";
+                $target_dir = "../images/";
                 $target_file = $target_dir . basename($_FILES["image"]["name"]);
                 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
