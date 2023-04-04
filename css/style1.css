@@ -317,3 +317,17 @@ table {
 .submit span:hover{
     color:rgb(2, 2, 116);
 }
+.req {
+    width: 450px;
+    height: 450px;
+    margin-left: 600px;
+    margin-top: 150px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: powderblue;
+    align-items: center;
+    text-align: center;
+    padding:50px;
+}

@@ -43,13 +43,13 @@
                         ?>
                         <span class="badge" style="color: cyan; border-radius: 50%;"><?php echo $requests?></span>
                     </a></li>
-                    <li><a href="">
+                    <!-- <li><a href="">
                         <i class="fa fa-bar-chart fa-2x" style="text-align: left;"></i>
                         <span class="nav-item">Analytics</span>
                     </a></li>
                     <li><a href="">
                         <i class="fa fa-cog fa-2x"></i>
-                        <span class="nav-item" style="text-align: left;">Settings</span>
+                        <span class="nav-item" style="text-align: left;">Settings</span> -->
                     </a></li>
                     <li><a href="logout.php" class="logout">
                         <i class="fa fa-sign-out fa-2x"></i>
@@ -98,8 +98,9 @@
                     <div class="card">
                         <i class="fa fa-solid fa-book fa-2x"></i>
                         <h3>Add Books</h3>
+                        <p>Add new books to the database</p> 
                         <button onclick="location.href='addBooks.php';">Add Books</button>
-                        <p>Add new books to the database</p>                        
+                                               
                     </div>
                 <div class="card" style="position:absolute; right:500px;">
                     <i class="fa fa-remove fa-2x"></i>
