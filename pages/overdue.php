@@ -13,10 +13,6 @@
         <link rel="stylesheet" href="../css/style1.css">
     </head>
     <body>
-        <?php
-            $reg = $_GET["reg"];
-            $sql = "SELECT * FROM `lost`  WHERE `reg`=$reg";
-        ?>
         <center><h2>Overdue Books</h2></center>
         <table style="width: auto; height: auto; margin-left: 600px; margin-top: 5px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; background-color: powderblue; align-items: auto; text-align: center; padding:20px;">
         <a href="dashboard.php"><button>Back to Dashboard</a>

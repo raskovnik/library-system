@@ -1,9 +1,12 @@
 <!DOCTYPE <!DOCTYPE html>
 <?php
-  include "../scripts/connect.php";
-  include "access.php";
-  session_start();
+    include "../scripts/connect.php";
+    include "access.php";
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
 ?>
+
 <html>
     <head>
         <meta charset="utf-8">

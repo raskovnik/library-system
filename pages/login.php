@@ -24,25 +24,25 @@
             if (isset($_POST["submit"])) {
                 $reg = $_POST["reg-no"];
                 $pwd = $_POST["pwd"];
-            }
-            if($pwd == "admin" && $reg == "admin") {
-                $_SESSION["user"] = "admin";
-                header("location:dashboard.php");
-            }
-            $sql = "SELECT * FROM `users` WHERE reg=$reg";
-            $user_res = mysqli_query($conn, $sql);
-            if (mysqli_num_rows($user_res) >= 1) {
-                $details = mysqli_fetch_assoc((mysqli_query($conn, $sql)));
-                if ($details["password"] == $pwd) {
-                    $_SESSION["user"] = $reg;
-                    header("location:index.php");
-                } else {
-                    echo '<script>alert("Invalid Login Details")</script>';
+                if($pwd == "admin" && $reg == "admin") {
+                    $_SESSION["user"] = "admin";
+                    header("location:dashboard.php");
                 }
-            } else {
-                echo '<script>alert("Invalid login details 2")</script>';
-                echo "Invalid login details";
-            } 
+                $sql = "SELECT * FROM `users` WHERE reg=$reg";
+                $user_res = mysqli_query($conn, $sql);
+                if (mysqli_num_rows($user_res) >= 1) {
+                    $details = mysqli_fetch_assoc((mysqli_query($conn, $sql)));
+                    if ($details["password"] == $pwd) {
+                        $_SESSION["user"] = $reg;
+                        header("location:index.php");
+                    } else {
+                        echo '<script>alert("Invalid Login Details")</script>';
+                    }
+                } else {
+                    echo '<script>alert("Invalid login details 2")</script>';
+                    echo "Invalid login details";
+                } 
+            }
         ?>
     </form>
     

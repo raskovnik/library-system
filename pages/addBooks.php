@@ -33,7 +33,9 @@
             </form>
         </article>
         <?php
-            session_start();
+            if (session_status() === PHP_SESSION_NONE) {
+                session_start();
+            }
             include ('../scripts/connect.php');
             if(isset($_POST['submit'])){
                 $isbn=$_POST['isbn'];
@@ -48,20 +50,7 @@
                 $target_dir = "../images/";
                 $target_file = $target_dir . basename($_FILES["image"]["name"]);
                 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
-                // Check if the file is actually an image
-                // $check = getimagesize($_FILES["image"]["tmp_name"]);
-                // if($check !== false) {
-                //     // Move the file to the destination directory if it's a valid image
-                //     if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                //         echo "Image uploaded successfully!";
-                //     } else {
-                //         echo "Error uploading image.";
-                //     }
-                // } else {
-                //     echo "File is not an image.";
-                // }
-
+                
                 if (isset($_FILES["image"])) {
                     $target_dir = "/library-system/images/";
                     if (move_uploaded_file($_FILES['image']['tmp_name'], $_SERVER['DOCUMENT_ROOT'].$target_dir.$_FILES['image']['name'])) {
