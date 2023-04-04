@@ -14,7 +14,7 @@
 </head>
 <body>
     <center><h2>All Books</h2></center>
-    <table>
+    <table style="width: auto; height: auto; margin-left: 500px; margin-top: 30px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; background-color: powderblue; align-items: center; text-align: center; padding:20px;">
         <tr>
             <th>ID</th>
             <th>ISBN</th>

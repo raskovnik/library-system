@@ -19,18 +19,24 @@
             $query = mysqli_query($conn, $sql);
             $result = mysqli_fetch_assoc($query);
         ?>
+
+        
+        <div class="req">
+        
         <form method="POST">
             <label>Registration Number</label>
-            <input type="text" disabled="true"  name="reg" id="reg" <?php echo 'value='.$result["reg"].''?>>
+            <input type="text" disabled="true"  name="reg" id="reg" <?php echo 'value='.$result["reg"].''?> style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);">
             <label>ISBN</label>
-            <input type="text" disabled="true"  name="isbn" id="isbn" <?php echo 'value='.$result["isbn"].''?>>
+            <input type="text" disabled="true"  name="isbn" id="isbn" <?php echo 'value='.$result["isbn"].''?> style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);">
             <label>Borrow Date</label>
-            <input type="text" disabled="true" name="b_date" id="b_date" <?php echo 'value='.$result["request_date"].''?>>
+            <input type="text" disabled="true" name="b_date" id="b_date" <?php echo 'value='.$result["request_date"].''?> style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);">
             <label>Return Date</label>
-            <input type="text" disabled="true" name="r_date" id="r_date" <?php echo 'value='.date("Y/m/d", strtotime($result["request_date"]."+ 14 days")).'';?>>
-            <input type="submit" name="approve" id="approve" value="Approve" class="btn" style="width: 25%; background-color: green;">
-            <input type="submit" name="reject" id="reject" value="Reject" class="btn" style="width: 25%; background-color: red;">
+            <input type="text" disabled="true" name="r_date" id="r_date" <?php echo 'value='.date("Y/m/d", strtotime($result["request_date"]."+ 14 days")).'';?> style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);">
+            <input type="submit" name="approve" id="approve" value="Approve" class="btn" style="width:25%; height: 30px; border-radius:10px; padding: 7px 15px; margin-top: 15px; cursor: pointer;background-color: green;">
+            <input type="submit" name="reject" id="reject" value="Reject" class="btn" style="width:25%; height: 30px; border-radius:10px; padding: 7px 15px; margin-top: 15px; cursor: pointer;background-color: red;">
         </form>
+        </div>
+        
         <a href="dashboard.php"><button>Back to Dashboard</a>
 
         <?php

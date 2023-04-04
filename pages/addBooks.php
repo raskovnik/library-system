@@ -9,27 +9,27 @@
     <title>Add Books</title>
 </head>
     <body>
-        <article>
+        <article style="margin-top: 20px;">
             <form method="POST" target='addBooks.php' enctype='multipart/form-data'>
                 <label>ISBN</label><br>
-                <input type="text" clas="form-input" id="isbn" name="isbn" required><br>
+                <input type="text" clas="form-input" id="isbn" name="isbn" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);" required><br>
                 <label>Title</label><br>
-                <input type="text" class="form-input" id="title" name="title" required><br>
+                <input type="text" class="form-input" id="title" name="title" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);" required><br>
                 <label>Author</label><br>
-                <input type="text" class="form-input" id="author" name="author" required><br>
+                <input type="text" class="form-input" id="author" name="author" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);" required><br>
                 <label>Description</label><br>
-                <input type="text" class="form-input" id="description" name="description" required><br>
+                <input type="text" class="form-input" id="description" name="description" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);" required><br>
                 <label>Image</label><br>
-                <input type="file" class="form-input" id="image" name="image" required><br>
+                <input type="file" class="form-input" id="image" name="image" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);" required><br>
                 <label>Category</label><br>
-                <input type="text" class="form-input" id="category" name="category" required><br>
+                <input type="text" class="form-input" id="category" name="category" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);" required><br>
                 <label>Quantity</label><br>
-                <input type="number" class="form-input" id="qty" name="qty" min="1" required><br>
+                <input type="number" class="form-input" id="qty" name="qty" min="1" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);" required><br>
                 <label>Price</label><br>
-                <input type="number" class="form-input" id="price" name="price" min="1" required ><br>
+                <input type="number" class="form-input" id="price" name="price" min="1"  style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);" required ><br>
                 <br>
-                <input type="submit" class="submit" name="submit" id="submit" value="Add Book">
-                <a href="dashboard.php"><button class="btn" style="height: 20px;">Back to Dashboard</a>
+                <input type="submit" class="submit" name="submit" id="submit" value="Add Book" style="width:100%; height: 30px; border-radius:10px; padding: 7px 15px; margin-top: 15px ;cursor: pointer;background-color: rgba(0, 0, 89, 0.452);">
+                <a href="dashboard.php"><button style="background-color: white; width:100px; height: 30px; border-radius:10px; padding: auto;">Back to Dashboard</a>
             </form>
         </article>
         <?php
