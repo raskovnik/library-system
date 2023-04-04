@@ -35,7 +35,6 @@
                     while ($row = mysqli_fetch_assoc($result)) {
                         $isbn = $row["isbn"];
                         $book = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM `books` WHERE ISBN=$isbn"));
-                        // $penalty = ((date("Y-m-d") - $row["return_date"]));
                         $penalty =  round((time() - strtotime($row["return_date"])) / (60 * 60 * 24)) * 15;
                         $total_penalty+=$penalty;
                         echo '<tr>';
