@@ -19,10 +19,14 @@
     ?>
     <?php
         $isbn = $_GET["isbn"];
-        $user = $_SESSION["user"];
-        $pending = mysqli_num_rows(
-            mysqli_query($conn, "SELECT * FROM `borrow` WHERE `reg`=$user")) + 
-            mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `lost` WHERE `reg`=$user"));
+        $pending = 0;
+        if (isset($_SESSION["user"])) {
+            $user = $_SESSION["user"];
+            $pending = mysqli_num_rows(
+                mysqli_query($conn, "SELECT * FROM `borrow` WHERE `reg`=$user")) + 
+                mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `lost` WHERE `reg`=$user"));
+        }
+        
         $_SESSION["page"] = "bookDescription.php?isbn=$isbn";
         $sql = "SELECT * FROM `books` WHERE `ISBN`=$isbn";
         $result = mysqli_query($conn, $sql);
