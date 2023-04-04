@@ -13,7 +13,9 @@
     <?php
         include "navbar.php";
         include "../scripts/connect.php";
-        session_start();
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
     ?>
     <?php
         $isbn = $_GET["isbn"];
