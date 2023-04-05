@@ -46,6 +46,9 @@
                     }
                 }
             }
+            else {
+                echo '<script>window.alert("Enter matching passwords")</script>';
+            }
         }
     ?>
 </body>

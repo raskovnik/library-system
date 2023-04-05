@@ -46,14 +46,14 @@
                         ?>
                         <span class="badge" style="color: cyan; border-radius: 50%;"><?php echo $requests?></span>
                     </a></li>
-                    <!-- <li><a href="">
-                        <i class="fa fa-bar-chart fa-2x" style="text-align: left;"></i>
-                        <span class="nav-item">Analytics</span>
+                    <li><a href="reset.php">
+                        <i class="bi bi-bootstrap-reboot" style="font-size: 1rem;"></i>
+                        <span class="nav-item">Reset Password</span>
                     </a></li>
-                    <li><a href="">
+                    <!-- <li><a href="">
                         <i class="fa fa-cog fa-2x"></i>
                         <span class="nav-item" style="text-align: left;">Settings</span> -->
-                    </a></li>
+                    <!-- </a></li> -->
                     <li><a href="logout.php" class="logout">
                         <i class="fa fa-sign-out fa-2x"></i>
                         <span class="nav-item">Log out</span>
