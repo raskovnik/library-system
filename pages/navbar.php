@@ -21,7 +21,6 @@
                 <nav>
                     <ul id="MenuItems">
                         <li><a href="index.php">Home</a></li>
-                        <!-- <li><a href="index.html">Resources</a></li> -->
                         <li><a href="index.php">Contact</a></li>
                         <li><a href="index.php">About</a></li>
                         <li>
@@ -37,14 +36,12 @@
                                         if ($pending != 0) {
                                             echo '<a href="#">Account <span class="badge badge-danger"><i class="bi bi-exclamation-circle" style="font-size: 1.3rem;"></i></span></a>';
                                             echo '<div class="dropdown-content" style="text-align: left;">';
-                                                // echo '<a href="#">Borrow History</a>';
                                                 echo '<a href="invoice.php?reg='.$_SESSION["user"].'">Lost and Overdue Books</a>';
                                                 echo '<a href="logout.php">Log Out</a>';
                                             echo '</div>';
                                         } else {
                                             echo '<a href="#">Account</a>';
                                             echo '<div class="dropdown-content" style="text-align: left;">';
-                                                // echo '<a href="#">Borrow History</a>';
                                                 echo '<a href="invoice.php?reg='.$_SESSION["user"].'">Lost and Overdue Books</a>';
                                                 echo '<a href="logout.php">Log Out</a>';
                                         }

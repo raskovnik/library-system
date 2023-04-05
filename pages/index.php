@@ -74,7 +74,6 @@
         </div>
 
         </div> 
-        <!--js for toggle menu-->
         <script>
             var MenuItems = document.getElementById("MenuItems")
             MenuItems.style.maxHeight = "0px";
