@@ -45,7 +45,6 @@
                 $return_date = date("Y/m/d", strtotime($result["request_date"]."+ 14 days"));
                 $isbn = $result["isbn"];
                 $sql = "INSERT INTO `borrow`(`reg`,`isbn`,`borrow`,`return_date`) VALUES('$reg','$isbn','$borrow_date', '$return_date')";
-                // $sql = "INSERT INTO `borrow`(`reg`, `isbn`, `borrow`, `return_date`) VALUES('1234', '123455434', '2023/3/21', '2023/4/4')";
                 $res = mysqli_query($conn, $sql);
                 if ($res) {
                     $sql = "DELETE FROM `requests`  WHERE `reg`=$reg";
