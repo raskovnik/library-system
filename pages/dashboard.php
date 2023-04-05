@@ -50,10 +50,10 @@
                         <i class="bi bi-bootstrap-reboot" style="font-size: 1rem;"></i>
                         <span class="nav-item">Reset Password</span>
                     </a></li>
-                    <!-- <li><a href="">
-                        <i class="fa fa-cog fa-2x"></i>
-                        <span class="nav-item" style="text-align: left;">Settings</span> -->
-                    <!-- </a></li> -->
+                    <li><a href="replace.php">
+                        <i class="bi bi-journal-plus" style="font-size: 1rem;"></i>
+                        <span class="nav-item" style="text-align: left;">Replace Books</span>
+                    </a></li>
                     <li><a href="logout.php" class="logout">
                         <i class="fa fa-sign-out fa-2x"></i>
                         <span class="nav-item">Log out</span>
