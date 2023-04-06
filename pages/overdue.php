@@ -27,6 +27,7 @@
             </tr>
             <?php
                 $sql = "SELECT * FROM `borrow` WHERE `return_date`<CURDATE()";
+                // $sql = "SELECT * FROM `borrow`";
                 $result = mysqli_query($conn, $sql);
                 if ($result) {
                     $count = 1;
@@ -37,6 +38,7 @@
                         $penalty =  round((time() - strtotime($row["return_date"])) / (60 * 60 * 24)) * 15;
                         $total_penalty+=$penalty;
                         echo '<tr>';
+                            // echo '<td><a href="viewrequest.php?reg='.$row["reg"].'">'.$count.'</a></td>';
                             echo '<td>'.$count.'</td>';
                             echo '<td>'.$row["reg"].'</td>';
                             echo '<td>'.$row["isbn"].'</td>';
@@ -49,6 +51,7 @@
                     }
                     echo '<tr>';
                     echo '<td colspan="6"><b>Totals</b></td>';
+                    // echo '<td><center><b>'.$books.'</b></center></td>';
                     echo '<td><center><b>Ksh. '.number_format($total_penalty, 2).'</b></center></td>';
                     echo '</tr>';
                 }

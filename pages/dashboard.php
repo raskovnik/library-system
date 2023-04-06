@@ -79,7 +79,9 @@
                         <p>Issuing invoices to students with lost books</p>
                         <form method="POST" action="dashboard.php">
                             <label for="reg">Registration Number</label>
-                            <input type="text" name="reg" id="reg" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);">                        </form>
+                            <input type="text" name="reg" id="reg" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);">
+                            <!-- <input type="submit" name="gen" id="gen" value="Issue Invoice" onclick="location.href='report.php';"> -->
+                        </form>
                         <script>
                             function generateInvoice() {
                                 var reg = document.getElementById("reg").value;

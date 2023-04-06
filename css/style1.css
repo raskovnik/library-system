@@ -131,7 +131,76 @@ a:hover {
     border-radius: 10px;
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
 }
-
+/* .addremove1 ul {
+    list-style: none;
+    display: flex;
+}
+.addremove1 ul li {
+    margin: 10px;
+    color: gray;
+    cursor: pointer;
+}
+.addremove1 ul .active {
+    color: black;
+    border-bottom: 1px solid black;   
+}
+.form-container{
+    background: powderblue;
+    width: 300px;
+    height: 400px;
+    position: relative;
+    text-align: center;
+    padding: 15px o;
+    margin: auto;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);
+    overflow: hidden;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.form-container span{
+    font-weight: bold;
+    padding: 0 10px;
+    color: #555;
+    cursor: pointer;
+    width: 100px;
+    display: inline-block;
+}
+.form-btn{
+    display: inline-block;
+}
+.form-container form{
+    max-width: 270px;
+    padding: 0px 20px;
+    position: relative;
+    top: 50px;
+    transition: transform 1s;
+}
+#Indicator{
+    width: 60%;
+    border: none;
+    background: #ff523b;
+    height: 2px;
+    margin-top: 0px;
+    transform: translateX(110px);
+    transition: transform 1s;
+}
+form .btn{
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0;
+}
+form .btn:focus{
+    outline: none;
+}
+form1{
+    left: -300px; 
+}
+form2{
+    left: 0;
+} */
 .form-container{
     background: powderblue;
     width: 300px;
