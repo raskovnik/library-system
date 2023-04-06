@@ -20,13 +20,17 @@
             $result = mysqli_query($conn, $sql);
             if ($result) {
                 $count = mysqli_num_rows($result);
-                $ind = 1;
+                $ind = 0;
                 $rows = ceil($count / 4);
+                $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+                shuffle($books);
+                $_SESSION["books"] = $books;
                 for ($i = 0; $i < $rows; $i++) {
                     echo '<div class="row">';
-                    while ($ind <= 8) {
-                        $book = mysqli_fetch_assoc($result);
-                        if ($ind % 4 != 0) {
+                    while ($ind <= 7) {
+                        $book = $books[$ind];
+                        if (($ind + 1) % 4 != 0) {
                             echo '<div class="col-4">';
                                 echo '<a href="bookDescription.php?isbn='.$book["ISBN"].'">';
                                 echo '<img src="../images/'.$book["image"].'" style="width: 200px; height: 300px; margin: 3px; background-color: powderblue; text-align: center;border-radius: 20px; padding: 5px;box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);">';

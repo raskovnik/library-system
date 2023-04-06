@@ -15,15 +15,13 @@
             render($page);
             function render($page) {
                 session_start();
-                include "../scripts/connect.php";
-                $sql = "SELECT * FROM `books`";
-                $result = mysqli_query($conn, $sql);
-                mysqli_data_seek($result, ($page - 1)*8);
+                $ind = ($page - 1)*8;
+                $books = $_SESSION["books"];
                 for ($i = 0; $i < 2; $i++) {
                     echo '<div class="row">';
                     try {
                         for ($j = 1; $j <= 4; $j++) {
-                            $book = mysqli_fetch_assoc($result);
+                            $book = $books[$ind];
                             if (!is_null($book)) {
                                 if ($j % 4 != 0) {
                                     echo '<div class="col-4">';
@@ -33,7 +31,8 @@
                                         echo '<span><b>ISBN</b>: '.$book["ISBN"].'</span>';
                                         echo '<p><b>Author</b>: '.$book["Author"].'</p>';
                                         echo '</a>';
-                                echo '</div>';
+                                    echo '</div>';
+                                    $ind++;
                                 } else {
                                     echo '<div class="col-4">';
                                         echo '<a href="bookDescription.php?isbn='.$book["ISBN"].'">';
@@ -42,7 +41,8 @@
                                         echo '<span><b>ISBN</b>: '.$book["ISBN"].'</span>';
                                         echo '<p><b>Author</b>: '.$book["Author"].'</p>';
                                         echo '</a>';
-                                echo '</div>';
+                                    echo '</div>';
+                                    $ind++;
                                     break;
                                 }
                             } else {
