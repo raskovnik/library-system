@@ -9,18 +9,15 @@
 <body>
     <?php
         include "../pages/navbar.php";
+        include "../scripts/connect.php";
         $book = $_GET["book"];
         $sql = "SELECT * FROM `books` WHERE `Description` LIKE '%$book%' OR `Category` LIKE '%$book%' OR `Title` LIKE '%$book%'";
         $result = mysqli_query($conn, $sql);
         $pages = ceil(mysqli_num_rows($result) / 8);
         $page = $_GET["page"];
-        render($page);
-        function render($page) {
+        render($page, $result);
+        function render($page, $result) {
             session_start();
-            include "../scripts/connect.php";
-            $sql = "SELECT * FROM `books`";
-            $result = mysqli_query($conn, $sql);
-            mysqli_data_seek($result, ($page - 1)*8);
             for ($i = 0; $i < 2; $i++) {
                 echo '<div class="row">';
                 try {

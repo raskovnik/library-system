@@ -94,31 +94,28 @@
             $tag = $row["Category"];
             $sql = "SELECT * FROM `books` WHERE Category LIKE '%$tag%' and ISBN!=$isbn";
             $similar = mysqli_query($conn, $sql);
+            $start = rand(0, (mysqli_num_rows($similar) / 2));
+            $result = array_slice(mysqli_fetch_all($similar, MYSQLI_ASSOC), $start, 4);
+            shuffle($result);
 
-            if ($similar) {
-                if (mysqli_num_rows($similar) > 0) {
-                    $count = 1;
-                    echo '<div class="row">';
-                    while ($count <= 4 && $book = mysqli_fetch_assoc($similar)) {
-                        echo '<div class="col-4">';
-                            echo '<a href="bookDescription.php?isbn='.$book["ISBN"].'">';
-                            echo '<img src="../images/'.$book["image"].'" style="width: 180px;
-                                        margin: 3px;
-                                        background-color: powderblue;
-                                        text-align: center;
-                                        border-radius: 20px;
-                                        padding: 5px;
-                                        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);">';
-                            echo '<h4>'.$book["Title"].'</h4>';
-                            echo '<span><b>ISBN</b>: '.$book["ISBN"].'</span>';
-                            echo '<p><b>Author</b>: '.$book["Author"].'</p>';
-                        echo '</a>';
-                    echo '</div>';
-                        $count += 1;
-                    }
-                    echo '</div>';
+            echo '<div class="row">';
+            foreach($result as $book) {
+                echo '<div class="col-4">';
+                        echo '<a href="bookDescription.php?isbn='.$book["ISBN"].'">';
+                        echo '<img src="../images/'.$book["image"].'" style="width: 180px;
+                                    margin: 3px;
+                                    background-color: powderblue;
+                                    text-align: center;
+                                    border-radius: 20px;
+                                    padding: 5px;
+                                    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);">';
+                        echo '<h4>'.$book["Title"].'</h4>';
+                        echo '<span><b>ISBN</b>: '.$book["ISBN"].'</span>';
+                        echo '<p><b>Author</b>: '.$book["Author"].'</p>';
+                    echo '</a>';
+                echo '</div>';
                 }
-            }
+            echo '</div>';
             
         } else {
             echo "<div style='height: 200px;
