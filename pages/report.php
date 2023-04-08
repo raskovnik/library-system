@@ -9,12 +9,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style1.css">
+	<link rel="stylesheet" href="../css/style.css">
+
     <title>All Books Report</title>
 </head>
 <body>
     <center><h2>All Books</h2></center>
-    <table style="width: auto; height: auto; margin-left: 500px; margin-top: 30px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; background-color: powderblue; align-items: center; text-align: center; padding:20px;">
+    <table>
         <tr>
             <th>ID</th>
             <th>ISBN</th>

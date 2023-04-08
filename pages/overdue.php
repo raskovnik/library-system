@@ -10,7 +10,8 @@
         <title>Overdue Books</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../css/style1.css">
+        <link rel="stylesheet" href="../css/style.css">
+
     </head>
     <body>
         <center><h2>Overdue Books</h2></center>
