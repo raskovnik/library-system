@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>All Books</title>
         <link rel="stylesheet" href="../css/style.css">
+
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
@@ -33,7 +34,8 @@
                         if (($ind + 1) % 4 != 0) {
                             echo '<div class="col-4">';
                                 echo '<a href="bookDescription.php?isbn='.$book["ISBN"].'">';
-                                echo '<img src="../images/'.$book["image"].'" style="width: 200px; height: 300px; margin: 3px; background-color: powderblue; text-align: center;border-radius: 20px; padding: 5px;box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);">';
+                                echo '<img src="../images/'.$book["image"].'">';
+                                // style="width: 200px; height: 300px; margin: 3px; background-color: powderblue; text-align: center;border-radius: 20px; padding: 5px;box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);"
                                 echo '<h4>'.$book["Title"].'</h4>';
                                 echo '<span><b>ISBN</b>: '.$book["ISBN"].'</span>';
                                 echo '<p><b>Author</b>: '.$book["Author"].'</p>';
@@ -43,7 +45,9 @@
                         } else {
                             echo '<div class="col-4">';
                                 echo '<a href="bookDescription.php?isbn='.$book["ISBN"].'">';
-                                echo '<img src="../images/'.$book["image"].'" style="width: 200px; height: 300px;margin: 3px;background-color: powderblue; text-align: center; border-radius: 20px; padding: 5px; box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);">';
+                                echo '<img src="../images/'.$book["image"].'">';
+
+                                // echo '<img src="../images/'.$book["image"].'" style="width: 200px; height: 300px;margin: 3px;background-color: powderblue; text-align: center; border-radius: 20px; padding: 5px; box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);">';
                                 echo '<h4>'.$book["Title"].'</h4>';
                                 echo '<span><b>ISBN</b>: '.$book["ISBN"].'</span>';
                                 echo '<p><b>Author</b>: '.$book["Author"].'</p>';

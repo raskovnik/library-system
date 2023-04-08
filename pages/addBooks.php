@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../css/style.css">
+
     <title>Add Books</title>
 </head>
     <body>
@@ -29,7 +30,7 @@
                 <input type="number" class="form-input" id="price" name="price" min="1"  style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);" required ><br>
                 <br>
                 <input type="submit" class="submit" name="submit" id="submit" value="Add Book" style="width:100%; height: 30px; border-radius:10px; padding: 7px 15px; margin-top: 15px ;cursor: pointer;background-color: rgba(0, 0, 89, 0.452);">
-                <a href="dashboard.php"><button style="background-color: white; width:100px; height: 30px; border-radius:10px; padding: auto;">Back to Dashboard</a>
+                <a href="dashboard.php"><button style="background-color: grey; width:100px; height: 35px; border-radius:10px; padding: auto;">Back to Dashboard</a>
             </form>
         </article>
         <?php

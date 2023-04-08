@@ -13,7 +13,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Dashboard</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link href="../css/style1.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/style.css">
+
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -23,7 +24,7 @@
     </head>
     <body>
         <div class="container">
-            <nav>
+            <nav style="background: grey;">
                 <ul>
                     <li><a href="#" class="logo">
                         <img src="../images/images.jpeg">
@@ -66,14 +67,14 @@
                     <i class="fa fa-user fa-2x"></i>
                 </div>
                 <div class="book">
-                    <div class="card">
+                    <div class="card" style="width: 35%">
                         <i class="fa fa-file fa-2x"></i>
                         <h3>Reports</h3>
                         <p>Generation of reports for books</p>
                         <button onclick="location.href='lost.php';">Lost Books</button>
                         <button onclick="location.href='report.php';">All Books</button>
                     </div>
-                    <div class="card">
+                    <div class="card" style="width: 40%">
                         <i class="fa fa-file fa-2x"></i>
                         <h3>Invoices</h3>
                         <p>Issuing invoices to students with lost books</p>
@@ -105,15 +106,15 @@
                         <button onclick="location.href='addBooks.php';">Add Books</button>
                                                
                     </div>
-                <div class="card" style="position:absolute; right:500px;">
+                <div class="card">
                     <i class="fa fa-remove fa-2x"></i>
                     <h3>Return Books</h3>
                     <p>Accept or Reject Borrowed Books</p>
                     <form id="RegForm" method="POST" action="dashboard.php">
                             ISBN: <input type="text" name="isbn" id="isbn" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);">
                             REGISTRATION NUMBER: <input type="text" name="reg-no" id="reg-no" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);">
-                            <button name="accept" id="accept" style="width:100%; height: 30px; border-radius:10px; padding: 7px 15px; margin-top: 15px ;cursor: pointer;background-color: green;">Accept</button>
-                            <button name="reject" id="reject" style="width:100%; height: 30px; border-radius:10px; padding: 7px 15px; margin-top: 15px ;cursor: pointer;background-color: red;">Reject</button>                            
+                            <button name="accept" id="accept" style="width:75%; height: 30px; border-radius:10px; padding: 7px 15px; margin-top: 15px ;cursor: pointer;background-color: green;">Accept</button>
+                            <button name="reject" id="reject" style="width:75%; height: 30px; border-radius:10px; padding: 7px 15px; margin-top: 15px ;cursor: pointer;background-color: red;">Reject</button>                            
                             <?php
                             if (array_key_exists("reject", $_POST)) {
                                 $isbn = $_POST["isbn"];
@@ -146,7 +147,7 @@
                             ?>
                     </form>
                 </div>
-                <div class="card" style="position:absolute; right:100px;">
+                <div class="card">
                     <i class="fa fa-refresh fa-2x" aria-hidden="true"></i>
                     <h3>Update Books</h3>
                     <p>Add books already existing in the database</p>

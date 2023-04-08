@@ -10,7 +10,8 @@
         <title>Borrow Requests</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../css/style1.css">
+        <link rel="stylesheet" href="../css/style.css">
+
     </head>
     <body>
         <?php
@@ -19,7 +20,7 @@
         ?>
 
         <center><h2>Borrow Requests</h2></center>
-        <table style="width: auto; height: auto; margin-left: 400px; margin-top: 5px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; background-color: powderblue; align-items: center; text-align: center; padding:20px;">
+        <table>
             <tr>
                 <th>ID</th>
                 <th>Registration Number</th>

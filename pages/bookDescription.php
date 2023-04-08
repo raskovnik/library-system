@@ -5,9 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Info</title>
-    <!-- <link rel="stylesheet" href="../css/style.css"> -->
-    <link rel="stylesheet" href="../css/books.css">
-    <!-- <script src="main.js"></script> -->
+	<link rel="stylesheet" href="../css/style.css">
+
 </head>
 <body>
     <?php
@@ -35,13 +34,7 @@
 
             echo '<div class="col-4">';
                 echo '<div class="flex-container">';
-                    echo '<div><img src="../images/'.$row["image"].'" style="width: 180px; width: 100%;
-                    margin: 3px;
-                    background-color: powderblue;
-                    text-align: center;
-                    border-radius: 20px;
-                    padding: 5px;
-                    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);"></div>';
+                    echo '<div class="div-image"><img src="../images/'.$row["image"].'" ></div>';
                     echo '<div>';
                         echo '<p><b>Author</b></p>';
                         echo '<p color="green"><a href="#">'.$row["Author"].'</a></p>';
@@ -101,14 +94,9 @@
             echo '<div class="row">';
             foreach($result as $book) {
                 echo '<div class="col-4">';
-                        echo '<a href="bookDescription.php?isbn='.$book["ISBN"].'">';
-                        echo '<img src="../images/'.$book["image"].'" style="width: 180px;
-                                    margin: 3px;
-                                    background-color: powderblue;
-                                    text-align: center;
-                                    border-radius: 20px;
-                                    padding: 5px;
-                                    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);">';
+                    echo '<a href="bookDescription.php?isbn='.$book["ISBN"].'">';
+                        echo '<img src="../images/'.$book["image"].'">';
+                        // style="width: 200px; height: 300px; margin: 3px; background-color: powderblue; text-align: center;border-radius: 20px; padding: 5px;box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);"
                         echo '<h4>'.$book["Title"].'</h4>';
                         echo '<span><b>ISBN</b>: '.$book["ISBN"].'</span>';
                         echo '<p><b>Author</b>: '.$book["Author"].'</p>';
