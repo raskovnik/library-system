@@ -513,3 +513,61 @@ table{
         width: 75%;
     }
 }
+
+@media only screen and (max-width: 1320px) {
+    header {
+        padding: 0 20px;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .col-4 {
+        flex: 1 0 50%;
+        font-size: 9px;
+      }
+
+    .col-4 img {
+        background-color: powderblue;
+        text-align: center;
+        border-radius: 20px;
+        padding: 3px;
+        box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+    }
+
+    .container{
+        max-width: 1300px;
+        margin: auto;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .div-image img {
+        margin-left: 140px;
+        padding: 3px;
+    }
+
+    .div-image {
+        padding: 3px;
+    }
+    .book .card {
+        margin: 10px;
+        background-color: powderblue;
+        text-align: center;
+        border-radius: 20px;
+        padding: 10px;
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    .book .card button{
+        width: auto;
+    }
+    table {
+        font-size: 10px;
+    }
+    
+    article {
+        width: 75%;
+    }
+}

@@ -22,7 +22,7 @@
     </head>
     </head>
     <body>
-        <header style="height: 90px;">
+        <header style="height: 130px;">
             <div class="logo">
                 <img src="../images/images.jpeg">
             </div>
