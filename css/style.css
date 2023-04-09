@@ -9,9 +9,7 @@
     font-family: "Poppins", sans-serif;
 }
 body {
-    /* background: url('../images/alexander-grey-eMP4sYPJ9x0-unsplash.jpg'); */
     background-repeat: no-repeat;
-    /* background-size: cover; */
     background-color: rgba(0, 0, 89, 0.452);
 }
 
@@ -215,7 +213,6 @@ article {
     justify-content: space-around;
     width: 75%;
     column-gap: 10px;
-    /* background-color: blue; */
 }
 .flex-container div {
     padding: 8px 30px;
