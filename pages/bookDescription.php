@@ -84,7 +84,8 @@
                 }
 
                 $tag = $row["Category"];
-                $sql = "SELECT * FROM `books` WHERE Category LIKE '%$tag%' and ISBN!=$isbn";
+                $author = $row["Author"];
+                $sql = "SELECT * FROM `books` WHERE (Category LIKE '%$tag%' OR Category='$tag' OR Author='$author') and ISBN!=$isbn";
                 $similar = mysqli_query($conn, $sql);
                 $start = rand(0, (mysqli_num_rows($similar) / 2));
                 $result = array_slice(mysqli_fetch_all($similar, MYSQLI_ASSOC), $start, 4);
