@@ -23,44 +23,50 @@
     </head>
     </head>
     <body>
-        <div class="container">
-            <nav style="background: grey;">
-                <ul>
-                    <li><a href="#" class="logo">
-                        <img src="../images/images.jpeg">
-                        <span class="nav-item">Dashboard</span>
-                    </a></li>
-                    <li><a href="overdue.php">
-                        <!-- <i class="fa fa-user fa-2x"></i> -->
-                        <i class="bi-alarm" style="font-size: 1rem; text-align: left; color: red;"></i>
-                        <span class="nav-item">Overdue Books</span>
-                        <?php
-                            $overdue = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `borrow` WHERE `return_date`<CURDATE()"));
-                        ?>
-                        <span class="badge" style="color: cyan; border-radius: 50%;"><?php echo $overdue?></span>
-                    </a></li>
-                    <li><a href="requests.php">
-                        <i class="bi bi-book" style="font-size: 1rem; text-align: left;"></i>
-                        <span class="nav-item">Borrow Requests</span>
-                        <?php
-                            $requests = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `requests`"));
-                        ?>
-                        <span class="badge" style="color: cyan; border-radius: 50%;"><?php echo $requests?></span>
-                    </a></li>
-                    <li><a href="reset.php">
-                        <i class="bi bi-bootstrap-reboot" style="font-size: 1rem;"></i>
-                        <span class="nav-item">Reset Password</span>
-                    </a></li>
-                    <li><a href="replace.php">
-                        <i class="bi bi-journal-plus" style="font-size: 1rem;"></i>
-                        <span class="nav-item" style="text-align: left;">Replace Books</span>
-                    </a></li>
-                    <li><a href="logout.php" class="logout">
-                        <i class="fa fa-sign-out fa-2x"></i>
-                        <span class="nav-item">Log out</span>
-                    </a></li>
-                </ul>
-            </nav>
+        <header style="height: 90px;">
+            <div class="logo">
+                <img src="../images/images.jpeg">
+                <!-- <span class="nav-item">Dashboard</span> -->
+            </div>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="container">
+                <nav class="nav-bar" style="justify-content: center;">
+                    <ul>
+                        <li><a href="overdue.php">
+                            <i class="bi-alarm" style="color: red; text-align: left;"></i>
+                            <span class="nav-item">Overdue Books</span>
+                            <?php
+                                $overdue = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `borrow` WHERE `return_date`<CURDATE()"));
+                            ?>
+                            <span class="badge" style="color: cyan; border-radius: 50%;"><?php echo $overdue?></span>
+                        </a></li>
+                        <li><a href="requests.php">
+                            <i class="bi bi-book" style="font-size: 1rem; text-align: left;"></i>
+                            <span class="nav-item">Borrow Requests</span>
+                            <?php
+                                $requests = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `requests`"));
+                            ?>
+                            <span class="badge" style="color: cyan; border-radius: 50%;"><?php echo $requests?></span>
+                        </a></li>
+                        <li><a href="reset.php">
+                            <i class="bi bi-bootstrap-reboot" style="font-size: 1rem; text-align: left;"></i>
+                            <span class="nav-item">Reset Password</span>
+                        </a></li>
+                        <li><a href="replace.php">
+                            <i class="bi bi-journal-plus" style="font-size: 1rem; text-align: left;"></i>
+                            <span class="nav-item" style="text-align: left;">Replace Books</span>
+                        </a></li>
+                        <li><a href="logout.php" class="logout">
+                            <i class="bi bi-box-arrow-right" style="font-size: 1rem; text-align: left;"></i>
+                            <span class="nav-item">Logout</span>
+                        </a></li>
+                    </ul>
+                </nav>
+        </header>
             <section class="main">
                 <div class="main-top">
                     <h1>Reports & Invoices</h1>
@@ -176,5 +182,13 @@
                     
                 </div>
                 </div>
+
+    <script>
+        hamburger = document.querySelector(".hamburger");
+        hamburger.onclick = function() {
+            navBar = document.querySelector(".nav-bar");
+            navBar.classList.toggle("active");
+        }
+    </script>
     </body>
 </html>

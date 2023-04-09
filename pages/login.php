@@ -17,7 +17,7 @@
         <label>Password</label><br>
         <input required type="password" class="form-input" id="pwd" name="pwd" style="width:100%;height: 30px;border-radius:10px;border-color: rgba(0, 0, 89, 0.452);"><br><br>
         <input type="submit" class="submit" id="submit" value="Login" name="submit" style="width:100%; height: 30px; border-radius:10px; padding: 7px 15px; margin-top: 15px ;cursor: pointer;background-color: rgba(0, 0, 89, 0.452);"><br><br>
-        <a href="forgot.php">Forgot Password</a><br><br>
+        <!-- <a href="forgot.php">Forgot Password</a><br><br> -->
         <a href="register.php">Create Account</a>
         <?php
             session_start();
