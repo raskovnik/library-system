@@ -64,9 +64,6 @@
                         echo '<span><a href="search.php?book='.$book.'&page='.$i.'">'.$i.'</a></span>';
                     }
                 }
-                if ($i < $_SESSION["pages"]) {
-                    echo '<span><a href="books.php?page='.$i.'">'.$i.'</a></span>';
-                }
             ?>
         </div>
     </body>
