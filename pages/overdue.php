@@ -28,7 +28,6 @@
             </tr>
             <?php
                 $sql = "SELECT * FROM `borrow` WHERE `return_date`<CURDATE()";
-                // $sql = "SELECT * FROM `borrow`";
                 $result = mysqli_query($conn, $sql);
                 if ($result) {
                     $count = 1;

@@ -18,7 +18,6 @@
             $reg = $_GET["reg"];
             $sql = "SELECT * FROM `lost`  WHERE `reg`=$reg";
         ?>
-
         <center><h2>Borrow Requests</h2></center>
         <table>
             <tr>
