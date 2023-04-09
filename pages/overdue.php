@@ -15,9 +15,9 @@
     </head>
     <body>
         <center><h2>Overdue Books</h2></center>
-        <table style="width: auto; height: auto; margin-left: 600px; margin-top: 5px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; background-color: powderblue; align-items: auto; text-align: center; padding:20px;">
+        <table style="width: fit-content; border-radius: 10px;">
         <a href="dashboard.php"><button>Back to Dashboard</a>
-            <tr>
+            <tr style="text-align: center;">
                 <th>ID</th>
                 <th>Registration Number</th>
                 <th>ISBN</th>
@@ -39,7 +39,6 @@
                         $penalty =  round((time() - strtotime($row["return_date"])) / (60 * 60 * 24)) * 15;
                         $total_penalty+=$penalty;
                         echo '<tr>';
-                            // echo '<td><a href="viewrequest.php?reg='.$row["reg"].'">'.$count.'</a></td>';
                             echo '<td>'.$count.'</td>';
                             echo '<td>'.$row["reg"].'</td>';
                             echo '<td>'.$row["isbn"].'</td>';
@@ -52,7 +51,6 @@
                     }
                     echo '<tr>';
                     echo '<td colspan="6"><b>Totals</b></td>';
-                    // echo '<td><center><b>'.$books.'</b></center></td>';
                     echo '<td><center><b>Ksh. '.number_format($total_penalty, 2).'</b></center></td>';
                     echo '</tr>';
                 }

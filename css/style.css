@@ -14,6 +14,29 @@ body {
     /* background-size: cover; */
     background-color: rgba(0, 0, 89, 0.452);
 }
+
+.hamburger {
+    display: none;
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    background: #49475f;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px;
+    margin-bottom: 20px;
+}
+
+header input[type="submit"] {
+    background-color: slategray;
+}
+header input[type="submit"]:hover {
+    background-color: rgba(43, 43, 56, 0.452);
+    color: white;
+}
 table {
     width: auto;
     height: auto;
@@ -28,25 +51,28 @@ table {
     align-items: center;
     text-align: center;
     padding: 20px;
-}
-.navbar{
-   display: flex;
-   align-items: center;
-   padding: 20px;
-}
-nav{
-   flex: 1;
-   text-align: right;
+} 
+
+.nav-bar ul {
+    display: flex;
+    list-style: none;
 }
 
-nav ul{
-   display: inline-block;
-   list-style-type: none;
+.nav-bar ul li a {
+    display: block;
+    color: black;
+    font-size: 20px;
+    padding: 10px 25px;
+    border-radius: 50px;
+    transition: 0.3s;
+    margin: 0 5px;
 }
-nav ul li{
-   display: inline-block;
-   margin: 20px;
+
+.nav-bar ul li a:hover {
+    color: #11101b;
+    background: lightslategray;
 }
+
 
 h4{
     color: #555;
@@ -277,7 +303,7 @@ form .btn:focus{
 }
 
 .main {
-    position: relative;
+    /* position: relative; */
     padding: 20px;
     width: 100%;
 }
@@ -286,7 +312,7 @@ form .btn:focus{
     width: 100%;
 }
 .main-top i {
-    position: absolute;
+    /* position: absolute; */
     right: 0;
     margin:10px 30px;
     color: powderblue;
@@ -389,6 +415,55 @@ table{
 
 
 @media only screen and (max-width: 800px) {
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger .line {
+        width: 30px;
+        height: 3px;
+        background: white;
+        margin: 6px 0;
+    }
+
+    .logo img {
+        display: none;
+    }
+
+    .nav-bar {
+        height: 0px;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background: #49475f;
+        transition: 0.5s;
+    }
+
+    .nav-bar ul {
+        /* z-index: 5000; */
+        display: block;
+        width: fit-content;
+        margin: 80px auto 0 auto;
+        text-align: center;
+        transition: 0.5s;
+        opacity: 0;
+        overflow: hidden;
+    }
+
+    .nav-bar ul li a {
+        margin-bottom: 12px;
+    }
+
+    .nav-bar.active {
+        height: 450px;
+    }
+
+    .nav-bar.active ul {
+        opacity: 1;
+    }
+
     .row {
         display: flex;
         flex-wrap: wrap;
