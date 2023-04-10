@@ -55,5 +55,6 @@
                 }
             ?>
         </table>
+        <button onclick="window.print()">Print</button>
     </body>
 </html>

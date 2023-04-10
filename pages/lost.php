@@ -50,5 +50,6 @@
             ?>
             <a href="dashboard.php"><button>Back to Dashboard</a>
         </table>
+        <button onclick="window.print()">Print</button>
     </body>
 </html>
