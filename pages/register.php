@@ -33,8 +33,8 @@
 
                 if ($pwd == $cpwd) {
                     $sql = "SELECT * FROM `users` WHERE reg=$reg";
-                    if (mysqli_num_rows(mysqli_query($conn, $sql))) {
-                        echo "You already have an account";
+                    if (mysqli_num_rows(mysqli_query($conn, $sql)) > 0) {
+                        echo '<script>window.alert("You already have an account")</script>';
                     } else {
                         $sql = "INSERT INTO `users` VALUES('$reg', '$name', '$pwd')";
                         if (mysqli_query($conn, $sql)) {
